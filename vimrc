@@ -12,6 +12,9 @@ set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
+" Quit insert
+imap jk <esc>
+imap kj <esc>
 
 " Numbers
 set number
