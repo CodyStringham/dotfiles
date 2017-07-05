@@ -37,5 +37,5 @@ set splitbelow
 set splitright
 
 " Colors
-colorscheme one
-set background=dark
+syntax on
+colorscheme onedark
