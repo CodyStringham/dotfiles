@@ -16,6 +16,10 @@ set autowrite     " Automatically :write before running commands
 imap jk <esc>
 imap kj <esc>
 
+" Let's be reasonable, shall we?
+nmap k gk
+nmap j gj
+
 " Numbers
 set number
 set numberwidth=5
