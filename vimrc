@@ -20,6 +20,11 @@ imap kj <esc>
 nmap k gk
 nmap j gj
 
+" Add/Remove lines
+nmap <CR> o<Esc>
+:autocmd CmdwinEnter * nnoremap <CR> <CR>
+:autocmd BufReadPost quickfix nnoremap <CR> <CR>
+
 " Numbers
 set number
 set numberwidth=5
