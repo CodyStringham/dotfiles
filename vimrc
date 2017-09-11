@@ -32,6 +32,9 @@ nmap <CR> o<Esc>
 set number
 set numberwidth=5
 
+" Spelling
+set spell
+
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
