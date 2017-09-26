@@ -1,8 +1,12 @@
-export ZSH=/Users/cody/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 plugins=(git rvm)
 ZSH_THEME="muse"
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Mac
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Manjaro
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 set -o vi
 
