@@ -1,12 +1,8 @@
 export ZSH=~/.oh-my-zsh
-plugins=(git rvm)
+plugins=(git rvm zsh-autosuggestions)
 ZSH_THEME="muse"
 source $ZSH/oh-my-zsh.sh
-# Mac
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Manjaro
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 set -o vi
 
@@ -84,3 +80,6 @@ export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
 # export PATH="/usr/local/opt/erlang@19/bin:$PATH" # Erlang 19
 # export PATH="/usr/local/opt/erlang@20/bin:$PATH" # Erlang 20
 export EDITOR='vim -w'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
