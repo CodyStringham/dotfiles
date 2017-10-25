@@ -15,6 +15,7 @@ set autowrite     " Automatically :write before running commands
 " Sets treeview
 " let g:netrw_liststyle=3
 
+
 " Quit insert
 imap jk <esc>
 imap kj <esc>
