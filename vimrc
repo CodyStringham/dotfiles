@@ -1,5 +1,6 @@
 " Leader
-let mapleader = " "
+let mapleader=" "
+nnoremap <SPACE> <Nop>
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
@@ -47,6 +48,12 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
