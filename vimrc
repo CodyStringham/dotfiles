@@ -1,5 +1,7 @@
 " Leader
 let mapleader=" "
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 nnoremap <SPACE> <Nop>
 
 set backspace=2   " Backspace deletes like most programs in insert mode
