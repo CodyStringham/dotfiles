@@ -3,9 +3,6 @@ plugins=(git rvm zsh-autosuggestions)
 ZSH_THEME="muse"
 source $ZSH/oh-my-zsh.sh
 
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-set -o vi
-
 
 
 
@@ -77,12 +74,8 @@ cleanaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SY
 
 # Paths
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
-# export PATH="/usr/local/opt/erlang@18/bin:$PATH" # Erlang 18
-# export PATH="/usr/local/opt/erlang@19/bin:$PATH" # Erlang 19
-# export PATH="/usr/local/opt/erlang@20/bin:$PATH" # Erlang 20
 export EDITOR='vim -w'
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+. $HOME/.asdf/asdf.sh
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+. $HOME/.asdf/completions/asdf.bash
