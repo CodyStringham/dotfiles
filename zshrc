@@ -3,6 +3,8 @@ plugins=(git rvm zsh-autosuggestions)
 ZSH_THEME="muse"
 source $ZSH/oh-my-zsh.sh
 
+eval $(thefuck --alias)
+
 
 
 
@@ -72,10 +74,9 @@ cleanaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SY
 
 
 
+
 # Paths
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
 export EDITOR='vim -w'
 
-. $HOME/.asdf/asdf.sh
-
-. $HOME/.asdf/completions/asdf.bash
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
