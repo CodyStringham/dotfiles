@@ -4,6 +4,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 nnoremap <SPACE> <Nop>
 
+set hidden        " Allows unsaved buffer to be hidden instead of required save
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
