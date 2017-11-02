@@ -115,6 +115,15 @@ function! s:MaybeUpdateLightline()
   end
 endfunction
 
+"strip all trailing whitespace in file on save
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
 " Colors
 syntax on
 colorscheme onedark

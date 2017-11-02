@@ -78,3 +78,5 @@ export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
 export EDITOR='vim -w'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/dev/dotfiles/tmuxinator.zsh
