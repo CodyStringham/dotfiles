@@ -60,6 +60,15 @@ map <Leader>a :call RunAllSpecs()<CR>
 " Insert binding.pry
 map <Leader>p obinding.pry<ESC>
 
+" Move to the next buffer
+nmap <leader>k :bnext<CR>
+
+" Move to the previous buffer
+nmap <leader>j :bprevious<CR>
+
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
+
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
