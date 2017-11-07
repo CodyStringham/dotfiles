@@ -57,6 +57,9 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+" Insert binding.pry
+map <Leader>p obinding.pry<ESC>
+
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
