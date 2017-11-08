@@ -80,3 +80,5 @@ export EDITOR='vim -w'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/dev/dotfiles/tmuxinator.zsh
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
