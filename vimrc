@@ -58,7 +58,7 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 " Insert binding.pry
-map <Leader>p obinding.pry<ESC>
+map <Leader>p obinding.pry<ESC>:w<CR>
 
 " Move to the next buffer
 nmap <leader>k :bnext<CR>
