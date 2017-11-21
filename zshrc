@@ -2,13 +2,13 @@ export ZSH=~/.oh-my-zsh
 plugins=(git rvm zsh-autosuggestions)
 ZSH_THEME="muse"
 source $ZSH/oh-my-zsh.sh
-
 eval $(thefuck --alias)
 
 
 
-
 # Aliases
+#alias vim="nvim"
+#alias vi="nvim"
 alias zconfig="vim ~/.zshrc"
 alias birdy="source .env && iex -S mix phx.server"
 alias powo="powder open"
@@ -77,7 +77,7 @@ cleanaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SY
 
 # Paths
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
-export EDITOR='vim -w'
+export EDITOR='nvim -w'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

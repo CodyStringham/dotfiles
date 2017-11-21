@@ -28,9 +28,9 @@ nmap k gk
 nmap j gj
 
 " Add/Remove lines
-nmap <CR> o<Esc>
-:autocmd CmdwinEnter * nnoremap <CR> <CR>
-:autocmd BufReadPost quickfix nnoremap <CR> <CR>
+" nmap <CR> o<Esc>
+" :autocmd CmdwinEnter * nnoremap <CR> <CR>
+" :autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 " Numbers
 set number
@@ -68,6 +68,10 @@ nmap <leader>j :bprevious<CR>
 
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
+
+" Rerun last command
+map <Leader>r q:k<CR>
+map <Leader>R q:kk<CR>
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
