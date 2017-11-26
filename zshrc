@@ -1,6 +1,7 @@
 export ZSH=~/.oh-my-zsh
 plugins=(git rvm zsh-autosuggestions)
-ZSH_THEME="muse"
+ZSH_THEME="agnoster"
+DEFAULT_USER=`whoami`
 source $ZSH/oh-my-zsh.sh
 eval $(thefuck --alias)
 
