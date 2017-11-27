@@ -8,8 +8,9 @@ eval $(thefuck --alias)
 
 
 # Aliases
-#alias vim="nvim"
-#alias vi="nvim"
+alias vim="nvim"
+alias vi="nvim"
+alias v="nvim"
 alias zconfig="vim ~/.zshrc"
 alias birdy="source .env && iex -S mix phx.server"
 alias powo="powder open"
