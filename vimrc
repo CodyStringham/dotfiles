@@ -73,6 +73,9 @@ nmap <leader>bl :ls<CR>
 map <Leader>r q:k<CR>
 map <Leader>R q:kk<CR>
 
+" Clear search highlight
+map <Leader>h :noh<CR>
+
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
