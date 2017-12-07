@@ -15,6 +15,7 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set hls!          " Don't highlight my searches, its lame
 
 " resize vim on tmux split
 autocmd VimResized * :wincmd =
