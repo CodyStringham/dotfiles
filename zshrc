@@ -21,6 +21,7 @@ alias yolo='git reset HEAD --hard && git clean -f'
 alias killdoc='docker stop $(docker ps -a -q)'
 alias tls='tmux ls'
 trm() { tmux kill-session -t $1 }
+tcd() { tmux attach-session -t $1 }
 
 alias .rails="cd ~/dev/rails_apps"
 alias .elixir="cd ~/dev/elixir_apps"
