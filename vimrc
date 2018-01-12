@@ -28,6 +28,10 @@ imap kj <esc>
 nmap k gk
 nmap j gj
 
+" Find in center of screen
+nnoremap n nzz
+nnoremap N Nzz
+
 " Add/Remove lines
 nmap <CR> o<Esc>
 :autocmd CmdwinEnter * nnoremap <CR> <CR>
