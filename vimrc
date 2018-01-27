@@ -60,12 +60,10 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 " Tab navigation
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>
+nnoremap <Leader><S-tab> :tabprevious<CR>
+nnoremap <Leader><tab>   :tabnext<CR>
+inoremap <Leader><S-tab> <Esc>:tabprevious<CR>i
+inoremap <Leader><tab>   <Esc>:tabnext<CR>i
 
 " RSpec.vim mappings
 " map <Leader>t :call RunCurrentSpecFile()<CR>
