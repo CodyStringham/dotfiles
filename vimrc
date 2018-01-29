@@ -37,9 +37,6 @@ nmap <CR> o<Esc>
 :autocmd CmdwinEnter * nnoremap <CR> <CR>
 :autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
-" enable AutoSave on Vim startup
-let g:auto_save = 1
-
 " Numbers
 set number
 set numberwidth=5
