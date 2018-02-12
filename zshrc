@@ -75,11 +75,13 @@ sizeaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SYN
 cleanaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd "$DIRECTORY_TO_SYNC/$REPO"; echo -e "\x1B[0;31m `pwd` \x1B[0m"; git gc --prune=all --aggressive); done; unset DIRECTORY_TO_SYNC;}
 
 
+# Vim mode? What!
+bindkey -v
 
 
 # Paths
-export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
-export EDITOR='nvim -w'
+export PATH="$PATH:$HOME/.asdf:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
+export EDITOR='vim -w'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -87,3 +89,4 @@ source ~/dev/dotfiles/tmuxinator.zsh
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+

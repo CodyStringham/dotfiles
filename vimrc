@@ -42,9 +42,6 @@ nmap <CR> o<Esc>
 set number
 set numberwidth=5
 
-" Spelling
-set spell
-
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
@@ -63,12 +60,6 @@ nnoremap <Leader><tab>   :tabnext<CR>
 inoremap <Leader><S-tab> <Esc>:tabprevious<CR>i
 inoremap <Leader><tab>   <Esc>:tabnext<CR>i
 
-" RSpec.vim mappings
-" map <Leader>t :call RunCurrentSpecFile()<CR>
-" map <Leader>s :call RunNearestSpec()<CR>
-" map <Leader>l :call RunLastSpec()<CR>
-" map <Leader>a :call RunAllSpecs()<CR>
-
 " Insert binding.pry
 map <Leader>p obinding.pry<ESC>:w<CR>
 
@@ -84,6 +75,12 @@ nmap <leader>bl :ls<CR>
 " Rerun last command
 map <Leader>r q:k<CR>
 map <Leader>R q:kk<CR>
+
+map <Leader>et :call VimuxRunCommand("clear; mix test " . bufname("%"))<CR>
+map <Leader>eT :call VimuxRunCommand("mix test)<CR>
+
+map <Leader>rt :call VimuxRunCommand("clear; rake test " . bufname("%"))<CR>
+map <Leader>rT :call VimuxRunCommand("rake test)<CR>
 
 " Clear search highlight
 map <Leader>h :noh<CR>
@@ -166,4 +163,5 @@ set undoreload=10000        " number of lines to save for undo
 
 " Colors
 syntax on
+set cursorline
 colorscheme onedark
