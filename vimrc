@@ -82,9 +82,9 @@ map <Leader>R q:kk<CR>
 " Vimux
 map <Leader>vr :call VimuxOpenRunner()<CR>
 map <Leader>et :w<CR>:call VimuxRunCommand("clear; mix test " . bufname("%"))<CR>
-map <Leader>eT :w<CR>:call VimuxRunCommand("mix test)<CR>
+map <Leader>ET :w<CR>:call VimuxRunCommand("clear; mix test")<CR>
 map <Leader>rt :w<CR>:call VimuxRunCommand("clear; rake test " . bufname("%"))<CR>
-map <Leader>rT :w<CR>:call VimuxRunCommand("rake test)<CR>
+map <Leader>RT :w<CR>:call VimuxRunCommand("clear; rake test")<CR>
 
 " Clear search highlight
 map <Leader>h :noh<CR>
