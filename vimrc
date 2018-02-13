@@ -60,6 +60,9 @@ nnoremap <Leader><tab>   :tabnext<CR>
 inoremap <Leader><S-tab> <Esc>:tabprevious<CR>i
 inoremap <Leader><tab>   <Esc>:tabnext<CR>i
 
+" Reload Vim
+map <Leader>. :source ~/dev/dotfiles/vimrc<CR>
+
 " Insert binding.pry
 map <Leader>p obinding.pry<ESC>:w<CR>
 
@@ -75,7 +78,6 @@ nmap <leader>bl :ls<CR>
 " Rerun last command
 map <Leader>r q:k<CR>
 map <Leader>R q:kk<CR>
-
 
 " Vimux
 map <Leader>vr :call VimuxOpenRunner()<CR>
