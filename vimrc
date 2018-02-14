@@ -21,10 +21,6 @@ set expandtab     " Spaces not tabs!
 " resize vim on tmux split
 autocmd VimResized * :wincmd =
 
-" Quit insert
-imap jk <esc>
-imap kj <esc>
-
 " Let's be reasonable, shall we?
 nmap k gk
 nmap j gj
@@ -57,8 +53,6 @@ nnoremap <Down> :echoe "Use j"<CR>
 " Tab navigation
 nnoremap <Leader><S-tab> :tabprevious<CR>
 nnoremap <Leader><tab>   :tabnext<CR>
-inoremap <Leader><S-tab> <Esc>:tabprevious<CR>i
-inoremap <Leader><tab>   <Esc>:tabnext<CR>i
 
 " Reload Vim
 map <Leader>. :source ~/dev/dotfiles/vimrc<CR>
