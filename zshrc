@@ -85,8 +85,6 @@ export EDITOR='vim -w'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source ~/dev/dotfiles/tmuxinator.zsh
-
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
