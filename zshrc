@@ -1,10 +1,9 @@
 export ZSH=~/.oh-my-zsh
 plugins=(git rvm zsh-autosuggestions)
-ZSH_THEME="agnoster"
+ZSH_THEME="kolo"
 DEFAULT_USER=`whoami`
 source $ZSH/oh-my-zsh.sh
 eval $(thefuck --alias)
-
 
 
 # Aliases
@@ -62,8 +61,6 @@ alias merges='echo "git checkout stage && git pull --rebase && git merge master 
 alias mergep='echo "git checkout production && git pull --rebase && git merge master && git push && git checkout master" && git checkout production && git pull --rebase && git merge master && git push && git checkout master'
 
 
-
-
 # Commands
 serv() { ruby -run -e httpd -- . -p $1 }
 sshnav() { ssh -i ~/.ssh/id_rsa deploy@$1 }
@@ -75,10 +72,6 @@ sizeaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SYN
 cleanaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd "$DIRECTORY_TO_SYNC/$REPO"; echo -e "\x1B[0;31m `pwd` \x1B[0m"; git gc --prune=all --aggressive); done; unset DIRECTORY_TO_SYNC;}
 
 
-# Vim mode? What!
-bindkey -v
-
-
 # Paths
 export PATH="$PATH:$HOME/.asdf:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
 export EDITOR='vim -w'
@@ -87,4 +80,3 @@ export EDITOR='vim -w'
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
-
