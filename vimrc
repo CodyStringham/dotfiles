@@ -79,6 +79,8 @@ map <Leader>et :w<CR>:call VimuxRunCommand("clear; mix test " . bufname("%"))<CR
 map <Leader>ET :w<CR>:call VimuxRunCommand("clear; mix test")<CR>
 map <Leader>rt :w<CR>:call VimuxRunCommand("clear; rake test " . bufname("%"))<CR>
 map <Leader>RT :w<CR>:call VimuxRunCommand("clear; rake test")<CR>
+map <Leader>rs :w<CR>:call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+map <Leader>RS :w<CR>:call VimuxRunCommand("clear; rspec")<CR>
 
 " Clear search highlight
 map <Leader>h :noh<CR>
