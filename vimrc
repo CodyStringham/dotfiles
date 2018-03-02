@@ -91,7 +91,7 @@ set splitright
 
 " Set FZF
 set rtp+=/usr/local/opt/fzf
-map <Leader>t :Files<CR>
+map <Leader>t :FZF<CR>
 
 "search project for word under cursor with Ag
 nnoremap <leader>F :Ag<C-R><C-W><CR>
