@@ -16,7 +16,7 @@ alias powo="powder open"
 alias powr="powder restart"
 alias powlink="ln -s ~/.powenv .powenv"
 alias pumarestart="pkill -USR1 puma-dev"
-alias yolo='git reset HEAD --hard && git clean -f'
+alias yolo='git reset HEAD --hard && git clean -f -d'
 alias killdoc='docker stop $(docker ps -a -q)'
 alias tls='tmux ls'
 trm() { tmux kill-session -t $1 }

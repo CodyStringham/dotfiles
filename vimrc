@@ -50,6 +50,12 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" Nerd Tree
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '→'
+let g:NERDTreeDirArrowCollapsible = '↓'
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " Tab navigation
 nnoremap <Leader><S-tab> :tabprevious<CR>
 nnoremap <Leader><tab>   :tabnext<CR>
@@ -69,11 +75,8 @@ nmap <leader>j :bprevious<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
 
-" Rerun last command
-map <Leader>r q:k<CR>
-map <Leader>R q:kk<CR>
-
 " Vimux
+map <Leader>r :call VimuxRunLastCommand()<CR>
 map <Leader>vr :call VimuxOpenRunner()<CR>
 map <Leader>et :w<CR>:call VimuxRunCommand("clear; mix test " . bufname("%"))<CR>
 map <Leader>ET :w<CR>:call VimuxRunCommand("clear; mix test")<CR>
