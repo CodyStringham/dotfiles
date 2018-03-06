@@ -16,7 +16,10 @@ set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set hls!          " Don't highlight my searches, its lame
+set tabstop=2
+set shiftwidth=2
 set expandtab     " Spaces not tabs!
+set so=999        " Search in middle of screen
 
 " resize vim on tmux split
 autocmd VimResized * :wincmd =
