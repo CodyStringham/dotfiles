@@ -74,7 +74,7 @@ cleanaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SY
 
 # Paths
 export PATH="$PATH:$HOME/.asdf:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
-export EDITOR='vim -w'
+export EDITOR='nvim -w'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
