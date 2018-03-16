@@ -76,6 +76,10 @@ cleanaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SY
 export PATH="$PATH:$HOME/.asdf:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
 export EDITOR='nvim -w'
 
+# GOPATH
+export GOPATH="${HOME}/go"
+export PATH="${PATH}:${GOPATH}/bin"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 . $HOME/.asdf/asdf.sh
