@@ -54,11 +54,10 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 " Nerd Tree
-map <C-n> :NERDTreeFind<CR>
-map <C-m> :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>m :NERDTreeFind<CR>
 let g:NERDTreeDirArrowExpandable = '→'
 let g:NERDTreeDirArrowCollapsible = '↓'
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Tab navigation
 nnoremap <Leader><S-tab> :tabprevious<CR>
