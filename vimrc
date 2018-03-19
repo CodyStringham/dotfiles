@@ -83,8 +83,8 @@ map <Leader>r :call VimuxRunLastCommand()<CR>
 map <Leader>vr :call VimuxOpenRunner()<CR>
 map <Leader>et :w<CR>:call VimuxRunCommand("clear; mix test " . bufname("%"))<CR>
 map <Leader>ET :w<CR>:call VimuxRunCommand("clear; mix test")<CR>
-map <Leader>rt :w<CR>:call VimuxRunCommand("clear; rake test " . bufname("%"))<CR>
-map <Leader>RT :w<CR>:call VimuxRunCommand("clear; rake test")<CR>
+map <Leader>rt :w<CR>:call VimuxRunCommand("clear; bundle exec rake test " . bufname("%"))<CR>
+map <Leader>RT :w<CR>:call VimuxRunCommand("clear; bundle exec rake test")<CR>
 map <Leader>rs :w<CR>:call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
 map <Leader>RS :w<CR>:call VimuxRunCommand("clear; bundle exec rspec")<CR>
 
