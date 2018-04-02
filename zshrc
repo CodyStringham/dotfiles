@@ -80,6 +80,9 @@ export EDITOR='nvim -w'
 export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH}/bin"
 
+# JAVAPATH
+export JAVA_HOME="/Library/Java/Home"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 . $HOME/.asdf/asdf.sh

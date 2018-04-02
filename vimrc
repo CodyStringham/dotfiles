@@ -21,6 +21,9 @@ set shiftwidth=2
 set expandtab     " Spaces not tabs!
 set so=999        " Search in middle of screen
 
+" Mouse stuff
+set mouse=a
+
 " resize vim on tmux split
 autocmd VimResized * :wincmd =
 
@@ -58,6 +61,7 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>m :NERDTreeFind<CR>
 let g:NERDTreeDirArrowExpandable = '→'
 let g:NERDTreeDirArrowCollapsible = '↓'
+let NERDTreeShowHidden=1
 
 " Tab navigation
 nnoremap <Leader><S-tab> :tabprevious<CR>
@@ -83,8 +87,8 @@ map <Leader>r :call VimuxRunLastCommand()<CR>
 map <Leader>vr :call VimuxOpenRunner()<CR>
 map <Leader>et :w<CR>:call VimuxRunCommand("clear; mix test " . bufname("%"))<CR>
 map <Leader>ET :w<CR>:call VimuxRunCommand("clear; mix test")<CR>
-map <Leader>rt :w<CR>:call VimuxRunCommand("clear; bundle exec rake test " . bufname("%"))<CR>
-map <Leader>RT :w<CR>:call VimuxRunCommand("clear; bundle exec rake test")<CR>
+map <Leader>rt :w<CR>:call VimuxRunCommand("clear; bundle exec rails test " . bufname("%"))<CR>
+map <Leader>RT :w<CR>:call VimuxRunCommand("clear; bundle exec rails test")<CR>
 map <Leader>rs :w<CR>:call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
 map <Leader>RS :w<CR>:call VimuxRunCommand("clear; bundle exec rspec")<CR>
 

@@ -2,6 +2,7 @@ unbind C-b
 set -g prefix C-s
 
 # Mouse stuff
+set -g mouse on
 
 set-option -g default-shell /bin/zsh
 
@@ -35,7 +36,7 @@ bind _ split-window -v -c '#{pane_current_path}'
 bind Tab next-window
 
 # Reload!
-bind r source-file ~/dev/dotfiles/tmux.conf \; display-message " ✱ tmux.conf is reloaded"
+bind r source-file ~/dev/dotfiles/tmux \; display-message " ✱ tmux.conf is reloaded"
 
 # Start new tmux for dev
 bind P source-file ~/dev/dotfiles/dev.tmux
