@@ -104,7 +104,7 @@ set rtp+=/usr/local/opt/fzf
 map <Leader>t :FZF<CR>
 
 "search project for word under cursor with Ag
-nnoremap <leader>F :Ag<C-R><C-W><CR>
+nnoremap <leader>F :Ag<Space><C-R><C-W><CR>
 nnoremap <leader>f :Ag<Space>
 
 " Lightline

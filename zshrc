@@ -83,7 +83,9 @@ export PATH="${PATH}:${GOPATH}/bin"
 # JAVAPATH
 export JAVA_HOME="/Library/Java/Home"
 
+#FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
