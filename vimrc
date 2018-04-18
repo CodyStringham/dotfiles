@@ -1,28 +1,33 @@
-" Leader
-let mapleader=" "
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
+" Leader
+let mapleader=" "
 nnoremap <SPACE> <Nop>
 
-set hidden        " Allows unsaved buffer to be hidden instead of required save
-set backspace=2   " Backspace deletes like most programs in insert mode
-set nobackup
-set nowritebackup
-set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-set history=50
-set ruler         " show the cursor position all the time
-set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
-set laststatus=2  " Always display the status line
-set autowrite     " Automatically :write before running commands
-set hls!          " Don't highlight my searches, its lame
-set tabstop=2
-set shiftwidth=2
-set expandtab     " Spaces not tabs!
-set so=999        " Search in middle of screen
+set hidden              " Allows unsaved buffer to be hidden instead of required save
+set backspace=2         " Backspace deletes like most programs in insert mode
+set nobackup            " No backup files
+set nowritebackup       " No backup files
+set noswapfile          " No swap file
+set history=50          " Set history to 50
+set ruler               " Show the cursor position all the time
+set showcmd             " Display incomplete commands
+set incsearch           " Do incremental searching
+set laststatus=2        " Always display the status line
+set autowrite           " Automatically :write before running commands
+set hls!                " Don't highlight my searches, its lame
+set tabstop=2           " Tabs are two spaces!
+set shiftwidth=2        " Tabs are two spaces!
+set expandtab           " Spaces not tabs!
+set so=999              " Search in middle of screen
+set clipboard=unnamed   " Should always copy to system clipboard
+set mouse=a             " Use the mouse!
 
-" Mouse stuff
-set mouse=a
+" Persistent Undo
+set undofile                " Save undos after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
 
 " resize vim on tmux split
 autocmd VimResized * :wincmd =
@@ -164,12 +169,6 @@ function! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-
-" Persistent Undo
-set undofile                " Save undos after file closes
-set undodir=$HOME/.vim/undo " where to save undo histories
-set undolevels=1000         " How many undos
-set undoreload=10000        " number of lines to save for undo
 
 " Colors
 syntax on

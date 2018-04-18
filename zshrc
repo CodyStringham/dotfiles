@@ -60,6 +60,18 @@ alias ulsidekiq="cd ~/dev/freelance_apps/FireFan/united_league && sidekiq"
 alias merges='echo "git checkout stage && git pull --rebase && git merge master && git push && git checkout master" && git checkout stage && git pull --rebase && git merge master && git push && git checkout master'
 alias mergep='echo "git checkout production && git pull --rebase && git merge master && git push && git checkout master" && git checkout production && git pull --rebase && git merge master && git push && git checkout master'
 
+# Nav
+# Must do this before shutting down computer
+alias navdown="nav stop allosaurus; nav stop medusa; nav stop nav_web; nav stop zuul; nav stop lexcorp; nav stop core"
+# Run after update
+alias navsetup="nav setup medusa; nav start medusa; nav setup allosaurus; nav stop medusa; nav setup nav_web; nav setup zuul; nav setup lexcorp; nav setup core"
+# After starting computer
+alias navup="nav start allosaurus --no-mount; nav start nav_web; nav start zuul; nav start lexcorp; nav start core"
+# Update master on all dependencies
+alias navupdate="nav update allosaurus; nav update medusa; nav update nav_web; nav update zuul; nav update lexcorp; nav update core"
+# Troubleshooting option if something isn't working; probably unnecessary
+alias navrestart="nav restart allosaurus; nav restart nav_web; nav restart zuul; nav restart lexcorp; nav restart core"
+
 
 # Commands
 serv() { ruby -run -e httpd -- . -p $1 }
