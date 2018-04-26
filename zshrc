@@ -83,6 +83,8 @@ pullnav() {DIRECTORY_TO_SYNC=~/nav/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd
 sizeaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd "$DIRECTORY_TO_SYNC/$REPO"; echo -e "\x1B[0;31m `pwd` \x1B[0m"; du -hs); done; unset DIRECTORY_TO_SYNC;}
 cleanaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd "$DIRECTORY_TO_SYNC/$REPO"; echo -e "\x1B[0;31m `pwd` \x1B[0m"; git gc --prune=all --aggressive); done; unset DIRECTORY_TO_SYNC;}
 
+# Enable IEx history
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Paths
 export PATH="$PATH:$HOME/.asdf:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
