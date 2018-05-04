@@ -15,7 +15,6 @@ set showcmd             " Display incomplete commands
 set incsearch           " Do incremental searching
 set laststatus=2        " Always display the status line
 set autowrite           " Automatically :write before running commands
-set hls!                " Don't highlight my searches, its lame
 set tabstop=2           " Tabs are two spaces!
 set shiftwidth=2        " Tabs are two spaces!
 set expandtab           " Spaces not tabs!
@@ -67,6 +66,7 @@ nnoremap <Leader>m :NERDTreeFind<CR>
 let g:NERDTreeDirArrowExpandable = '→'
 let g:NERDTreeDirArrowCollapsible = '↓'
 let NERDTreeShowHidden=1
+let g:NERDTreeMouseMode = 3
 
 " Tab navigation
 nnoremap <Leader><S-tab> :tabprevious<CR>
@@ -111,6 +111,9 @@ map <Leader>t :FZF<CR>
 "search project for word under cursor with Ag
 nnoremap <leader>F :Ag<Space><C-R><C-W><CR>
 nnoremap <leader>f :Ag<Space>
+
+" search history
+nnoremap<leader>? :History:<CR>
 
 " Lightline
 let g:lightline = {
