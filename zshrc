@@ -3,6 +3,7 @@ plugins=(git rvm zsh-autosuggestions)
 ZSH_THEME="agnoster"
 DEFAULT_USER=`whoami`
 source $ZSH/oh-my-zsh.sh
+source $HOME/.rvm/scripts/rvm
 eval $(thefuck --alias)
 
 
@@ -10,6 +11,7 @@ eval $(thefuck --alias)
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
+alias k="kubectl"
 alias zconfig="vim ~/.zshrc"
 alias birdy="source .env && iex -S mix phx.server"
 alias powo="powder open"
@@ -17,6 +19,7 @@ alias powr="powder restart"
 alias powlink="ln -s ~/.powenv .powenv"
 alias pumarestart="pkill -USR1 puma-dev"
 alias yolo='git reset HEAD --hard && git clean -f -d'
+alias wipebranches='git branch | grep -ve " master$" | xargs git branch -D'
 alias killdoc='docker stop $(docker ps -a -q)'
 alias tls='tmux ls'
 trm() { tmux kill-session -t $1 }
@@ -83,19 +86,20 @@ pullnav() {DIRECTORY_TO_SYNC=~/nav/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd
 sizeaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd "$DIRECTORY_TO_SYNC/$REPO"; echo -e "\x1B[0;31m `pwd` \x1B[0m"; du -hs); done; unset DIRECTORY_TO_SYNC;}
 cleanaccess() {DIRECTORY_TO_SYNC=~/dev/access/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd "$DIRECTORY_TO_SYNC/$REPO"; echo -e "\x1B[0;31m `pwd` \x1B[0m"; git gc --prune=all --aggressive); done; unset DIRECTORY_TO_SYNC;}
 
+export EDITOR='nvim -w'
+
 # Enable IEx history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Paths
-export PATH="$PATH:$HOME/.asdf:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
-export EDITOR='nvim -w'
+export PATH="$PATH:$HOME/.asdf:/usr/local/bin:/usr/bin:/bin"
 
 # GOPATH
 export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH}/bin"
 
 # JAVAPATH
-export JAVA_HOME="/Library/Java/Home"
+#export JAVA_HOME="/Library/Java/Home"
 
 #FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

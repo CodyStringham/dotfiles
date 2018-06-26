@@ -18,7 +18,7 @@ set autowrite           " Automatically :write before running commands
 set tabstop=2           " Tabs are two spaces!
 set shiftwidth=2        " Tabs are two spaces!
 set expandtab           " Spaces not tabs!
-set so=999              " Search in middle of screen
+" set so=999              " Search in middle of screen
 set clipboard=unnamed   " Should always copy to system clipboard
 set mouse=a             " Use the mouse!
 
@@ -60,6 +60,9 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" DelimitMate
+let delimitMate_expand_cr = 1
+
 " Nerd Tree
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>m :NERDTreeFind<CR>
@@ -69,8 +72,10 @@ let NERDTreeShowHidden=1
 let g:NERDTreeMouseMode = 3
 
 " Tab navigation
-nnoremap <Leader><S-tab> :tabprevious<CR>
-nnoremap <Leader><tab>   :tabnext<CR>
+nnoremap <tab>   :tabnext<CR>
+nnoremap <C-t>   :tabnew<CR>
+inoremap <tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>   <Esc>:tabnew<CR>
 
 " Reload Vim
 map <Leader>. :source ~/dev/dotfiles/vimrc<CR>
@@ -103,6 +108,9 @@ map <Leader>h :noh<CR>
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
+
+" Replace word under cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 " Set FZF
 set rtp+=/usr/local/opt/fzf
@@ -176,7 +184,7 @@ endfun
 " Colors
 syntax on
 set cursorline
-colorscheme one
+colorscheme palenight
 set background=dark
 
 if (has("nvim"))
