@@ -93,6 +93,7 @@ nmap <leader>j :bprevious<CR>
 nmap <leader>bl :ls<CR>
 
 " Vimux
+map <expr> <Leader>c "clear; :call VimuxRunCommand('" . input("Command to run: ") . "')<CR>"
 map <Leader>r :call VimuxRunLastCommand()<CR>
 map <Leader>vr :call VimuxOpenRunner()<CR>
 map <Leader>et :w<CR>:call VimuxRunCommand("clear; mix test " . bufname("%"))<CR>
