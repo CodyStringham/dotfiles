@@ -72,10 +72,8 @@ let NERDTreeShowHidden=1
 let g:NERDTreeMouseMode = 3
 
 " Tab navigation
-nnoremap <tab>   :tabnext<CR>
-nnoremap <C-t>   :tabnew<CR>
-inoremap <tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>   <Esc>:tabnew<CR>
+nnoremap <tab>   :bnext<CR>
+inoremap <tab>   <Esc>:bnext<CR>i
 
 " Reload Vim
 map <Leader>. :source ~/dev/dotfiles/vimrc<CR>
@@ -93,7 +91,7 @@ nmap <leader>j :bprevious<CR>
 nmap <leader>bl :ls<CR>
 
 " Vimux
-map <expr> <Leader>c "clear; :call VimuxRunCommand('" . input("Command to run: ") . "')<CR>"
+map <expr> <Leader>c ":call VimuxRunCommand('clear; " . input("Command to run: ") . "')<CR>"
 map <Leader>r :call VimuxRunLastCommand()<CR>
 map <Leader>vr :call VimuxOpenRunner()<CR>
 map <Leader>et :w<CR>:call VimuxRunCommand("clear; mix test " . bufname("%"))<CR>
