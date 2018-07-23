@@ -70,6 +70,10 @@ let g:NERDTreeDirArrowExpandable = '→'
 let g:NERDTreeDirArrowCollapsible = '↓'
 let NERDTreeShowHidden=1
 let g:NERDTreeMouseMode = 3
+:let g:NERDTreeWinSize=40
+
+" Indent
+let g:indentLine_char = '┆'
 
 " Tab navigation
 nnoremap <tab>   :bnext<CR>
