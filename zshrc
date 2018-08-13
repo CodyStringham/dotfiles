@@ -56,12 +56,18 @@ export EDITOR='nvim -w'
 # Enable IEx history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-# Paths
-export PATH="$PATH:$HOME/.asdf:/usr/local/bin:/usr/bin:/bin"
+# Build Path
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/bin"
+export PATH="$PATH:/bin"
+export PATH="$PATH:$HOME/.asdf"
 
 # GOPATH
 export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH}/bin"
+
+# CRYSTAL
+export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 
 # JAVAPATH
 #export JAVA_HOME="/Library/Java/Home"
