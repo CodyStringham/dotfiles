@@ -79,6 +79,9 @@ let g:indentLine_char = '┆'
 nnoremap <tab>   :bnext<CR>
 inoremap <tab>   <Esc>:bnext<CR>i
 
+" Buffer delete
+map <Leader>d :bd<CR>
+
 " Reload Vim
 map <Leader>. :source ~/dev/dotfiles/vimrc<CR>
 
