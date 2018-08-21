@@ -10,7 +10,7 @@ eval $(thefuck --alias)
 # Aliases
 alias vim="MIX_ENV=edit nvim"
 alias vi="MIX_ENV=edit nvim"
-alias v="MIX_ENV=edit nvim"
+alias v="MIX_ENV=edit nvim ."
 alias k="kubectl"
 alias zconfig="vim ~/.zshrc"
 alias birdy="source .env && iex -S mix phx.server"
