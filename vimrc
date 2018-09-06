@@ -28,6 +28,14 @@ set undodir=$HOME/.vim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
+" Magic line numbers
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 " resize vim on tmux split
 autocmd VimResized * :wincmd =
 
@@ -87,6 +95,7 @@ map <Leader>. :source ~/dev/dotfiles/vimrc<CR>
 
 " Insert binding.pry
 map <Leader>p obinding.pry<ESC>:w<CR>
+map <Leader>i orequire IEx;IEx.pry<ESC>:w<CR>
 
 " Move to the next buffer
 nmap <leader>k :bnext<CR>
