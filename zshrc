@@ -8,9 +8,9 @@ eval $(thefuck --alias)
 
 
 # Aliases
-alias vim="MIX_ENV=edit nvim"
-alias vi="MIX_ENV=edit nvim"
-alias v="MIX_ENV=edit nvim ."
+alias vim="nvim"
+alias vi="nvim"
+alias v="nvim ."
 alias k="kubectl"
 alias zconfig="vim ~/.zshrc"
 alias zreset="source ~/.zshrc"

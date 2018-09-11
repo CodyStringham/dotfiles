@@ -1,5 +1,9 @@
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
+" go-vim
+filetype plugin indent on
+set completeopt-=preview
+
 " Leader
 let mapleader=" "
 nnoremap <SPACE> <Nop>
@@ -15,10 +19,6 @@ set showcmd             " Display incomplete commands
 set incsearch           " Do incremental searching
 set laststatus=2        " Always display the status line
 set autowrite           " Automatically :write before running commands
-set tabstop=2           " Tabs are two spaces!
-set shiftwidth=2        " Tabs are two spaces!
-set expandtab           " Spaces not tabs!
-" set so=999              " Search in middle of screen
 set clipboard=unnamed   " Should always copy to system clipboard
 set mouse=a             " Use the mouse!
 
@@ -137,6 +137,16 @@ nnoremap <leader>f :Ag<Space>
 
 " search history
 nnoremap<leader>? :History:<CR>
+
+" use goimports for formatting
+let g:go_fmt_command = "goimports"
+
+" turn highlighting on
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 " Lightline
 let g:lightline = {
