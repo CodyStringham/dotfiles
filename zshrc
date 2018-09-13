@@ -11,6 +11,7 @@ eval $(thefuck --alias)
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim ."
+alias gocs="cd ~/go/src/github.com/codystringham"
 alias k="kubectl"
 alias zconfig="vim ~/.zshrc"
 alias zreset="source ~/.zshrc"
