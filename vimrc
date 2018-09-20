@@ -28,14 +28,6 @@ set undodir=$HOME/.vim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
-" Magic line numbers
-set number relativenumber
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
 " resize vim on tmux split
 autocmd VimResized * :wincmd =
 
@@ -88,30 +80,27 @@ nnoremap <tab>   :bnext<CR>
 inoremap <tab>   <Esc>:bnext<CR>i
 
 " Buffer delete
-map <Leader>d :bd<CR>
+map <Leader>x :bd<CR>
 
 " Reload Vim
 map <Leader>. :source ~/dev/dotfiles/vimrc<CR>
 
 " Insert binding.pry
 map <Leader>p obinding.pry<ESC>:w<CR>
-map <Leader>i orequire IEx;IEx.pry<ESC>:w<CR>
 
 " Move to the next buffer
-nmap <leader>k :bnext<CR>
+nmap <Leader>k :bnext<CR>
 
 " Move to the previous buffer
-nmap <leader>j :bprevious<CR>
+nmap <Leader>j :bprevious<CR>
 
 " Show all open buffers and their status
-nmap <leader>bl :ls<CR>
+nmap <Leader>bl :ls<CR>
 
 " Vimux
 map <expr> <Leader>c ":call VimuxRunCommand('clear; " . input("Command to run: ") . "')<CR>"
 map <Leader>r :call VimuxRunLastCommand()<CR>
 map <Leader>vr :call VimuxOpenRunner()<CR>
-map <Leader>et :w<CR>:call VimuxRunCommand("clear; mix test " . bufname("%"))<CR>
-map <Leader>ET :w<CR>:call VimuxRunCommand("clear; mix test")<CR>
 map <Leader>rt :w<CR>:call VimuxRunCommand("clear; bundle exec rails test " . bufname("%"))<CR>
 map <Leader>RT :w<CR>:call VimuxRunCommand("clear; bundle exec rails test")<CR>
 map <Leader>rs :w<CR>:call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
@@ -132,11 +121,12 @@ set rtp+=/usr/local/opt/fzf
 map <Leader>t :FZF<CR>
 
 "search project for word under cursor with Ag
-nnoremap <leader>F :Ag<Space><C-R><C-W><CR>
-nnoremap <leader>f :Ag<Space>
+nnoremap <Leader>d :GoDef<CR>
+nnoremap <Leader>F :Ag<Space><C-R><C-W><CR>
+nnoremap <Leader>f :Ag<Space>
 
 " search history
-nnoremap<leader>? :History:<CR>
+nnoremap<Leader>? :History:<CR>
 
 " use goimports for formatting
 let g:go_fmt_command = "goimports"
