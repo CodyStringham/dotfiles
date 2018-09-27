@@ -40,6 +40,7 @@ alias navrestart="nav restart allosaurus; nav restart nav_web; nav restart zuul;
 
 
 # Commands
+replace() { ag --hidden -l "$1" > /tmp/list; cat /tmp/list; cat /tmp/list | xargs -I{} sed -i "$2" {} ;rm /tmp/list; }
 bench() { for i in {1..5}; curl -s -w "%{time_total}\n" -o /dev/null $1 }
 newgemset() { source ~/.rvm/scripts/rvm; rvm --ruby-version use $1@$2 --create }
 pullvim() {DIRECTORY_TO_SYNC=~/dev/dotfiles/vim/pack/bundle/start/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd "$DIRECTORY_TO_SYNC/$REPO"; echo -e "\x1B[0;31m `pwd` \x1B[0m"; git pull --rebase); done; unset DIRECTORY_TO_SYNC;}

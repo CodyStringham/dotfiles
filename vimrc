@@ -1,8 +1,43 @@
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" START PLUGINS - - - - - - - - - - - - - - - - - - - - - - - -
+" Specify a directory for plugins
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'https://github.com/w0rp/ale.git'
+Plug 'https://github.com/Raimondi/delimitMate'
+Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/Yggdroot/indentLine'
+Plug 'https://github.com/itchyny/lightline.vim'
+Plug 'https://github.com/scrooloose/nerdtree'
+Plug 'https://github.com/tpope/vim-endwise'
+Plug 'https://github.com/airblade/vim-gitgutter'
+Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/christoomey/vim-tmux-navigator'
+Plug 'https://github.com/benmills/vimux'
+call plug#end()
 
-" go-vim
-filetype plugin indent on
-set completeopt-=preview
+" END PLUGINS - - - - - - - - - - - - - - - - - - - - - - - - -
+
+" Run deoplete.nvim automatically
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#enable_at_startup = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" deoplete-go settings
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Leader
 let mapleader=" "
@@ -77,7 +112,6 @@ let g:indentLine_char = '┆'
 
 " Tab navigation
 nnoremap <tab>   :bnext<CR>
-inoremap <tab>   <Esc>:bnext<CR>i
 
 " Buffer delete
 map <Leader>x :bd<CR>
@@ -128,11 +162,17 @@ nnoremap <Leader>f :Ag<Space>
 " search history
 nnoremap<Leader>? :History:<CR>
 
-" use goimports for formatting
-let g:go_fmt_command = "goimports"
+" go-vim
+filetype plugin indent on
+set completeopt-=preview
 
-" turn highlighting on
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+let g:go_highlight_types = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
