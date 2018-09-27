@@ -162,6 +162,11 @@ nnoremap <Leader>f :Ag<Space>
 " search history
 nnoremap<Leader>? :History:<CR>
 
+" Ale Configs
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+let g:airline#extensions#ale#enabled = 1
+
 " go-vim
 filetype plugin indent on
 set completeopt-=preview
