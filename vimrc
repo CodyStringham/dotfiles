@@ -166,6 +166,8 @@ nnoremap<Leader>? :History:<CR>
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
 
 " go-vim
 filetype plugin indent on
