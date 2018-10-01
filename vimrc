@@ -18,6 +18,7 @@ Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
 Plug 'https://github.com/benmills/vimux'
+Plug 'https://github.com/tpope/vim-fugitive'
 call plug#end()
 
 " END PLUGINS - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -193,6 +194,7 @@ let g:lightline = {
 \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
 \ },
 \ 'component_expand': {
+\   'filename': 'LightlineFilename',
 \   'linter_warnings': 'LightlineLinterWarnings',
 \   'linter_errors': 'LightlineLinterErrors',
 \   'linter_ok': 'LightlineLinterOK'
@@ -203,6 +205,15 @@ let g:lightline = {
 \   'linter_errors': 'error'
 \ },
 \ }
+
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
 
 function! LightlineLinterWarnings() abort
   let l:counts = ale#statusline#Count(bufnr(''))
