@@ -19,9 +19,9 @@ alias zreset="source ~/.zshrc"
 alias yolo='git reset HEAD --hard && git clean -f -d'
 alias wipebranches='git branch | grep -ve " master$" | xargs git branch -D'
 alias killdoc='docker stop $(docker ps -a -q)'
+alias dockup='docker-compose up -d'
+alias dockdown='docker-compose down'
 alias tls='tmux ls'
-alias phx.c='iex -S mix'
-alias phx.s='iex -S mix phx.server'
 alias merges='echo "git checkout stage && git pull --rebase && git merge master && git push && git checkout master" && git checkout stage && git pull --rebase && git merge master && git push && git checkout master'
 alias mergep='echo "git checkout production && git pull --rebase && git merge master && git push && git checkout master" && git checkout production && git pull --rebase && git merge master && git push && git checkout master'
 
