@@ -6,6 +6,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 Plug 'https://github.com/w0rp/ale.git'
 Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -14,10 +15,13 @@ Plug 'https://github.com/Yggdroot/indentLine'
 Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'https://github.com/tpope/vim-endwise'
-Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/elzr/vim-json'
+
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
 Plug 'https://github.com/benmills/vimux'
+
+Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/tpope/vim-fugitive'
 call plug#end()
 
@@ -110,6 +114,7 @@ let g:NERDTreeMouseMode = 3
 
 " Indent
 let g:indentLine_char = '┆'
+let g:vim_json_syntax_conceal = 0
 
 " Tab navigation
 nnoremap <tab>   :bnext<CR>

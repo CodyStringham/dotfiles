@@ -1,7 +1,8 @@
 export ZSH=~/.oh-my-zsh
 plugins=(git rvm zsh-autosuggestions)
-ZSH_THEME="agnoster"
+ZSH_THEME="spaceship"
 DEFAULT_USER=`whoami`
+SPACESHIP_KUBECONTEXT_SYMBOL="⎈ "
 source $ZSH/oh-my-zsh.sh
 source $HOME/.rvm/scripts/rvm
 eval $(thefuck --alias)
