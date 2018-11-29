@@ -3,6 +3,7 @@ plugins=(git rvm zsh-autosuggestions)
 ZSH_THEME="spaceship"
 DEFAULT_USER=`whoami`
 SPACESHIP_KUBECONTEXT_SYMBOL="⎈ "
+SPACESHIP_GIT_BRANCH_COLOR="green"
 source $ZSH/oh-my-zsh.sh
 source $HOME/.rvm/scripts/rvm
 eval $(thefuck --alias)

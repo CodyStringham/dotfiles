@@ -176,7 +176,7 @@ nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
 " go-vim
-filetype plugin indent on
+filetype plugin on
 set completeopt-=preview
 
 let g:go_fmt_command = "goimports"
