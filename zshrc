@@ -1,12 +1,15 @@
 export ZSH=~/.oh-my-zsh
 plugins=(git rvm zsh-autosuggestions)
-ZSH_THEME="spaceship"
 DEFAULT_USER=`whoami`
-SPACESHIP_KUBECONTEXT_SYMBOL="⎈ "
-SPACESHIP_GIT_BRANCH_COLOR="green"
 source $ZSH/oh-my-zsh.sh
 source $HOME/.rvm/scripts/rvm
 eval $(thefuck --alias)
+
+ZSH_THEME=""
+autoload -U promptinit; promptinit
+setopt AUTO_NAME_DIRS
+BACKEND=$HOME/go/src/git.nav.com/backend
+prompt pure
 
 
 # Aliases
@@ -29,6 +32,13 @@ alias mergep='echo "git checkout production && git pull --rebase && git merge ma
 
 
 # Nav
+alias allo="cd ~/nav/allosaurus"
+alias rp="cd ~/nav/allosaurus"
+alias voltron="cd ~/nav/voltron"
+alias pudge="gonav && cd pudge"
+alias gloop="gonav && cd gloop"
+alias workers="gonav && cd go_pudge_workers"
+#
 # Must do this before shutting down computer
 alias navdown="nav stop allosaurus; nav stop medusa; nav stop nav_web; nav stop zuul; nav stop lexcorp; nav stop core"
 # Run after update
