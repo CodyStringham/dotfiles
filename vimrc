@@ -23,6 +23,8 @@ Plug 'https://github.com/benmills/vimux'
 
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/tpope/vim-fugitive'
+
+Plug 'andreypopp/vim-colors-plain'
 call plug#end()
 
 " END PLUGINS - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -110,7 +112,12 @@ let g:NERDTreeDirArrowExpandable = '→'
 let g:NERDTreeDirArrowCollapsible = '↓'
 let NERDTreeShowHidden=1
 let g:NERDTreeMouseMode = 3
-:let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize=40
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Indent
 let g:indentLine_char = '┆'
@@ -262,7 +269,11 @@ endfun
 " Colors
 syntax on
 set cursorline
-colorscheme palenight
+
+" colorscheme palenight
+set background=dark " Set to dark for a dark variant
+colorscheme plain
+
 set background=dark
 
 if (has("nvim"))
