@@ -7,22 +7,22 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-Plug 'https://github.com/w0rp/ale.git'
-Plug 'https://github.com/Raimondi/delimitMate'
-Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'https://github.com/junegunn/fzf.vim'
-Plug 'https://github.com/Yggdroot/indentLine'
-Plug 'https://github.com/itchyny/lightline.vim'
-Plug 'https://github.com/scrooloose/nerdtree'
-Plug 'https://github.com/tpope/vim-endwise'
-Plug 'https://github.com/tpope/vim-surround'
-Plug 'https://github.com/elzr/vim-json'
+Plug 'w0rp/ale'
+Plug 'Raimondi/delimitMate'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
+Plug 'elzr/vim-json'
 
-Plug 'https://github.com/christoomey/vim-tmux-navigator'
-Plug 'https://github.com/benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
 
-Plug 'https://github.com/airblade/vim-gitgutter'
-Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 Plug 'andreypopp/vim-colors-plain'
 call plug#end()
@@ -270,11 +270,8 @@ endfun
 syntax on
 set cursorline
 
-" colorscheme palenight
 set background=dark " Set to dark for a dark variant
 colorscheme plain
-
-set background=dark
 
 if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -282,4 +279,3 @@ endif
 if (has("termguicolors"))
   set termguicolors
 endif
-

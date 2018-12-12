@@ -9,6 +9,9 @@ ZSH_THEME=""
 autoload -U promptinit; promptinit
 setopt AUTO_NAME_DIRS
 BACKEND=$HOME/go/src/git.nav.com/backend
+
+
+# Prompt
 prompt pure
 
 
