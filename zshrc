@@ -12,6 +12,7 @@ BACKEND=$HOME/go/src/git.nav.com/backend
 
 
 # Prompt
+autoload -U promptinit; promptinit
 prompt pure
 
 
