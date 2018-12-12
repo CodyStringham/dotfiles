@@ -6,7 +6,6 @@ source $HOME/.rvm/scripts/rvm
 eval $(thefuck --alias)
 
 ZSH_THEME=""
-autoload -U promptinit; promptinit
 setopt AUTO_NAME_DIRS
 BACKEND=$HOME/go/src/git.nav.com/backend
 

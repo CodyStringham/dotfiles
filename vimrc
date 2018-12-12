@@ -200,7 +200,7 @@ let g:go_highlight_build_constraints = 1
 
 " Lightline
 let g:lightline = {
-\ 'colorscheme': 'wombat',
+\ 'colorscheme': 'powerline',
 \ 'active': {
 \   'left': [['mode', 'paste'], ['filename', 'modified']],
 \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
@@ -256,6 +256,8 @@ function! s:MaybeUpdateLightline()
     call lightline#update()
   end
 endfunction
+
+
 
 "strip all trailing whitespace in file on save
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
