@@ -144,6 +144,9 @@ nmap <Leader>j :bprevious<CR>
 " Show all open buffers and their status
 nmap <Leader>bl :ls<CR>
 
+" Terminal
+tnoremap <Esc> <C-\><C-n>
+
 " Vimux
 map <expr> <Leader>c ":call VimuxRunCommand('clear; " . input("Command to run: ") . "')<CR>"
 map <Leader>r :call VimuxRunLastCommand()<CR>
@@ -176,8 +179,8 @@ nnoremap <Leader>f :Ag<Space>
 nnoremap<Leader>? :History:<CR>
 
 " Ale Configs
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '❗️'
+let g:ale_sign_warning = '❕'
 let g:airline#extensions#ale#enabled = 1
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
