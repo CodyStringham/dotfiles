@@ -179,9 +179,11 @@ nnoremap <Leader>f :Ag<Space>
 nnoremap<Leader>? :History:<CR>
 
 " Ale Configs
-let g:ale_sign_error = '❗️'
+let g:ale_sign_error = '‼️'
 let g:ale_sign_warning = '❕'
 let g:airline#extensions#ale#enabled = 1
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
