@@ -24,7 +24,7 @@ Plug 'benmills/vimux'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
-Plug 'andreypopp/vim-colors-plain'
+Plug 'CodyStringham/vim-minimal'
 call plug#end()
 
 " END PLUGINS - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -179,10 +179,10 @@ nnoremap <Leader>f :Ag<Space>
 nnoremap<Leader>? :History:<CR>
 
 " Ale Configs
-let g:ale_sign_error = '‼️'
-let g:ale_sign_warning = '❕'
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '○'
 let g:airline#extensions#ale#enabled = 1
-highlight clear ALEErrorSign
+" highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
@@ -193,19 +193,19 @@ set completeopt-=preview
 
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
-let g:go_highlight_types = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+" let g:go_highlight_types = 1
+" let g:go_highlight_extra_types = 1
+" let g:go_highlight_fields = 1
+" let g:go_highlight_functions = 1
+" let g:go_highlight_function_calls = 1
+" let g:go_highlight_methods = 1
+" let g:go_highlight_structs = 1
+" let g:go_highlight_operators = 1
+" let g:go_highlight_build_constraints = 1
 
 " Lightline
 let g:lightline = {
-\ 'colorscheme': 'powerline',
+\ 'colorscheme': 'minimal',
 \ 'active': {
 \   'left': [['mode', 'paste'], ['filename', 'modified']],
 \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
@@ -277,8 +277,8 @@ endfun
 syntax on
 set cursorline
 
-set background=dark " Set to dark for a dark variant
-colorscheme plain
+" set background=dark " Set to dark for a dark variant
+colorscheme minimal
 
 if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
