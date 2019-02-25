@@ -4,15 +4,39 @@ DEFAULT_USER=`whoami`
 source $ZSH/oh-my-zsh.sh
 source $HOME/.rvm/scripts/rvm
 eval $(thefuck --alias)
-
 ZSH_THEME=""
-setopt AUTO_NAME_DIRS
-BACKEND=$HOME/go/src/git.nav.com/backend
-
 
 # Prompt
 autoload -U promptinit; promptinit
 prompt pure
+unsetopt auto_name_dirs
+
+# Editor
+export EDITOR='nvim -w'
+
+# Enable IEx history
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+# Build Path
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/bin"
+export PATH="$PATH:/bin"
+
+# GOPATH
+export GOPATH="${HOME}/go"
+export GOROOT=/usr/local/opt/go/libexec
+export PATH="${PATH}:${GOPATH}/bin"
+export PATH="${PATH}:${GOROOT}/bin"
+
+# CRYSTAL
+export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
+
+# JAVAPATH
+#export JAVA_HOME="/Library/Java/Home"
+
+#FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 
 # Aliases
@@ -35,26 +59,23 @@ alias mergep='echo "git checkout production && git pull --rebase && git merge ma
 
 
 # Nav
-alias allo="cd ~/nav/allosaurus"
-alias rp="cd ~/nav/allosaurus"
+alias allosaurus="cd ~/nav/allosaurus"
+alias batcave="cd ~/nav/batcave"
+alias rp="cd ~/nav/relevant_paths"
 alias voltron="cd ~/nav/voltron"
 alias pudge="gonav && cd pudge"
-alias gloop="gonav && cd gloop"
+alias exp="gonav && cd experian_personal_alerts"
 alias workers="gonav && cd go_pudge_workers"
-#
-# Must do this before shutting down computer
-alias navdown="nav stop allosaurus; nav stop medusa; nav stop nav_web; nav stop zuul; nav stop lexcorp; nav stop core"
-# Run after update
-alias navsetup="nav setup medusa; nav start medusa; nav setup allosaurus; nav stop medusa; nav setup nav_web; nav setup zuul; nav setup lexcorp; nav setup core"
-# After starting computer
-alias navup="nav start allosaurus --no-mount; nav start nav_web; nav start zuul; nav start lexcorp; nav start core"
-# Update master on all dependencies
-alias navupdate="nav update allosaurus; nav update medusa; nav update nav_web; nav update zuul; nav update lexcorp; nav update core"
-# Troubleshooting option if something isn't working; probably unnecessary
-alias navrestart="nav restart allosaurus; nav restart nav_web; nav restart zuul; nav restart lexcorp; nav restart core"
+alias int1="kubectl config use-context int1"
+alias int3="kubectl config use-context int3"
+alias prod="kubectl config use-context prod"
+alias convey="$GOPATH/bin/goconvey"
+
+alias kmux="kitty -o allow_remote_control=yes --listen-on unix:/tmp/mykitty"
 
 
 # Commands
+kssh() {pod=`kubectl get pods | grep "$1" | awk '{print $1}' | head -n 1`; kubectl exec -it --request-timeout=5s $pod bash }
 replace() { ag --hidden -l "$1" > /tmp/list; cat /tmp/list; cat /tmp/list | xargs -I{} sed -i "$2" {} ;rm /tmp/list; }
 bench() { for i in {1..5}; curl -s -w "%{time_total}\n" -o /dev/null $1 }
 newgemset() { source ~/.rvm/scripts/rvm; rvm --ruby-version use $1@$2 --create }
@@ -63,31 +84,3 @@ pullnav() {DIRECTORY_TO_SYNC=~/nav/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd
 trm() { tmux kill-session -t $1 }
 tcd() { tmux attach-session -t $1 }
 
-# Editor
-export EDITOR='nvim -w'
-
-# Enable IEx history
-export ERL_AFLAGS="-kernel shell_history enabled"
-
-# Build Path
-export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:/usr/bin"
-export PATH="$PATH:/bin"
-export PATH="$PATH:$HOME/.asdf"
-
-# GOPATH
-export GOPATH="${HOME}/go"
-export PATH="${PATH}:${GOPATH}/bin"
-
-# CRYSTAL
-export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
-
-# JAVAPATH
-#export JAVA_HOME="/Library/Java/Home"
-
-#FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash

@@ -2,10 +2,11 @@
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'buoto/gotests-vim'
 
 Plug 'w0rp/ale'
 Plug 'Raimondi/delimitMate'
@@ -16,10 +17,13 @@ Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-Plug 'elzr/vim-json'
 
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
+Plug 'elzr/vim-json'
+Plug 'posva/vim-vue'
+
+" Plug 'christoomey/vim-tmux-navigator'
+Plug 'knubie/vim-kitty-navigator'
+" Plug 'benmills/vimux'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -34,8 +38,8 @@ let g:deoplete#enable_at_startup = 1
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
-let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
 
 " deoplete-go settings
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
@@ -43,6 +47,10 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" autocomplete unimported packages
+let g:deoplete#sources#go#unimported_packages = 1
+let g:deoplete#enable_refresh_always = 1
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
@@ -202,6 +210,8 @@ let g:go_fmt_fail_silently = 1
 " let g:go_highlight_structs = 1
 " let g:go_highlight_operators = 1
 " let g:go_highlight_build_constraints = 1
+" let g:go_auto_sameids = 1
+" let g:go_auto_type_info = 1
 
 " Lightline
 let g:lightline = {
@@ -262,8 +272,6 @@ function! s:MaybeUpdateLightline()
   end
 endfunction
 
-
-
 "strip all trailing whitespace in file on save
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 function! <SID>StripTrailingWhitespaces()
@@ -283,6 +291,7 @@ colorscheme minimal
 if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
+
 if (has("termguicolors"))
   set termguicolors
 endif
