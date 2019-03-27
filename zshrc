@@ -24,9 +24,7 @@ export PATH="$PATH:/bin"
 
 # GOPATH
 export GOPATH="${HOME}/go"
-export GOROOT=/usr/local/opt/go/libexec
 export PATH="${PATH}:${GOPATH}/bin"
-export PATH="${PATH}:${GOROOT}/bin"
 
 # CRYSTAL
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
@@ -84,3 +82,7 @@ pullnav() {DIRECTORY_TO_SYNC=~/nav/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd
 trm() { tmux kill-session -t $1 }
 tcd() { tmux attach-session -t $1 }
 
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
