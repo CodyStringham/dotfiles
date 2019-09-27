@@ -1,8 +1,7 @@
 export ZSH=~/.oh-my-zsh
-plugins=(git rvm zsh-autosuggestions)
+plugins=(git zsh-autosuggestions)
 DEFAULT_USER=`whoami`
 source $ZSH/oh-my-zsh.sh
-source $HOME/.rvm/scripts/rvm
 eval $(thefuck --alias)
 ZSH_THEME=""
 
@@ -21,6 +20,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/usr/bin"
 export PATH="$PATH:/bin"
+export PATH="$PATH:/usr/local/sbin"
 
 # GOPATH
 export GOPATH="${HOME}/go"
@@ -31,6 +31,10 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 
 # JAVAPATH
 #export JAVA_HOME="/Library/Java/Home"
+#
+
+# Postgres
+export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 #FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -55,6 +59,8 @@ alias tls='tmux ls'
 alias merges='echo "git checkout stage && git pull --rebase && git merge master && git push && git checkout master" && git checkout stage && git pull --rebase && git merge master && git push && git checkout master'
 alias mergep='echo "git checkout production && git pull --rebase && git merge master && git push && git checkout master" && git checkout production && git pull --rebase && git merge master && git push && git checkout master'
 
+alias nsqstart='nsqlookupd & nsqd --lookupd-tcp-address=127.0.0.1:4160 & nsqadmin --lookupd-http-address=127.0.0.1:4161 &'
+
 
 # Nav
 alias allosaurus="cd ~/nav/allosaurus"
@@ -69,11 +75,10 @@ alias int3="kubectl config use-context int3"
 alias prod="kubectl config use-context prod"
 alias convey="$GOPATH/bin/goconvey"
 
-alias kmux="kitty -o allow_remote_control=yes --listen-on unix:/tmp/mykitty"
-
 
 # Commands
 kssh() {pod=`kubectl get pods | grep "$1" | awk '{print $1}' | head -n 1`; kubectl exec -it --request-timeout=5s $pod bash }
+kgrep() { k get pods | grep "$1" }
 replace() { ag --hidden -l "$1" > /tmp/list; cat /tmp/list; cat /tmp/list | xargs -I{} sed -i "$2" {} ;rm /tmp/list; }
 bench() { for i in {1..5}; curl -s -w "%{time_total}\n" -o /dev/null $1 }
 newgemset() { source ~/.rvm/scripts/rvm; rvm --ruby-version use $1@$2 --create }
@@ -84,5 +89,4 @@ tcd() { tmux attach-session -t $1 }
 
 
 . $HOME/.asdf/asdf.sh
-
 . $HOME/.asdf/completions/asdf.bash

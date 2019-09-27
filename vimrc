@@ -2,11 +2,11 @@
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+" Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'buoto/gotests-vim'
+" Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'buoto/gotests-vim'
 
 Plug 'w0rp/ale'
 Plug 'Raimondi/delimitMate'
@@ -23,9 +23,9 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'elzr/vim-json'
 Plug 'posva/vim-vue'
 
-" Plug 'christoomey/vim-tmux-navigator'
-Plug 'knubie/vim-kitty-navigator'
-" Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
+" Plug 'knubie/vim-kitty-navigator'
+Plug 'benmills/vimux'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -116,13 +116,12 @@ nnoremap <Down> :echoe "Use j"<CR>
 let delimitMate_expand_cr = 1
 
 " Nerd Tree
-nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>m :NERDTreeFind<CR>
+nnoremap <Leader>n :NERDTree<CR>
+nnoremap <Leader>m :NERDTree<CR>:q<CR>:NERDTreeFind<CR>
 let g:NERDTreeDirArrowExpandable = '→'
 let g:NERDTreeDirArrowCollapsible = '↓'
 let NERDTreeShowHidden=1
 let g:NERDTreeMouseMode = 3
-let g:NERDTreeWinSize=40
 let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
