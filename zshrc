@@ -72,6 +72,7 @@ alias exp="gonav && cd experian_personal_alerts"
 alias workers="gonav && cd go_pudge_workers"
 alias int1="kubectl config use-context int1"
 alias int3="kubectl config use-context int3"
+alias demo="kubectl config use-context demo"
 alias prod="kubectl config use-context prod"
 alias convey="$GOPATH/bin/goconvey"
 
