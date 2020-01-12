@@ -1,6 +1,3 @@
-unbind C-b
-set -g prefix C-s
-
 # Mouse stuff
 set -g mouse on
 

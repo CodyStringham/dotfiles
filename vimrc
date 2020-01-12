@@ -191,6 +191,7 @@ nnoremap<Leader>? :History:<CR>
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '○'
 let g:airline#extensions#ale#enabled = 1
+let g:ale_pattern_options = {'measure_list.rb': {'ale_enabled': 0}}
 " highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 nmap <silent> <leader>aj :ALENext<cr>
