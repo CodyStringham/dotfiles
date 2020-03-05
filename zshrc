@@ -6,9 +6,8 @@ eval $(thefuck --alias)
 ZSH_THEME=""
 
 # Prompt
-autoload -U promptinit; promptinit
-prompt pure
-unsetopt auto_name_dirs
+autoload -U promptinit && promptinit
+prompt filthy
 
 # Editor
 export EDITOR='nvim -w'
