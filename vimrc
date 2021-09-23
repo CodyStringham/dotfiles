@@ -2,57 +2,39 @@
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-" Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'zchee/deoplete-go', { 'do': 'make'}
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'buoto/gotests-vim'
 
-Plug 'w0rp/ale'
-Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'itchyny/lightline.vim'
+Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-surround'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-
-Plug 'elzr/vim-json'
-Plug 'posva/vim-vue'
-
+Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'knubie/vim-kitty-navigator'
 Plug 'benmills/vimux'
-
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-
 Plug 'CodyStringham/vim-minimal'
+Plug 'itchyny/lightline.vim'
+
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet-snippets'
+
+" Plug 'Raimondi/delimitMate'
+" Plug 'Yggdroot/indentLine'
+" Plug 'tpope/vim-endwise'
+" Plug 'tpope/vim-surround'
+" Plug 'elzr/vim-json'
+" Plug 'posva/vim-vue'
+
 call plug#end()
 
 " END PLUGINS - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " Run deoplete.nvim automatically
 let g:deoplete#enable_at_startup = 1
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-
-" deoplete-go settings
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
-" autocomplete unimported packages
-let g:deoplete#sources#go#unimported_packages = 1
-let g:deoplete#enable_refresh_always = 1
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
@@ -128,6 +110,9 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Markdown Preview
+let vim_markdown_preview_github=1
+
 " Indent
 let g:indentLine_char = '┆'
 let g:vim_json_syntax_conceal = 0
@@ -162,8 +147,9 @@ map <Leader>r :call VimuxRunLastCommand()<CR>
 map <Leader>vr :call VimuxOpenRunner()<CR>
 map <Leader>rt :w<CR>:call VimuxRunCommand("clear; bundle exec rails test " . bufname("%"))<CR>
 map <Leader>RT :w<CR>:call VimuxRunCommand("clear; bundle exec rails test")<CR>
-map <Leader>rs :w<CR>:call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
-map <Leader>RS :w<CR>:call VimuxRunCommand("clear; bundle exec rspec")<CR>
+map <Leader>rs :w<CR>:call VimuxRunCommand("clear; JRUBY_OPTS=--debug bundle exec rspec " . bufname("%"))<CR>
+map <Leader>rsl :w<CR>:call VimuxRunCommand("clear; JRUBY_OPTS=--debug bundle exec rspec " . bufname("%") . ":" . line("."))<CR>
+map <Leader>RS :w<CR>:call VimuxRunCommand("clear; JRUBY_OPTS=--debug bundle exec rspec")<CR>
 
 " Clear search highlight
 map <Leader>h :noh<CR>
@@ -198,11 +184,11 @@ nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
 " go-vim
-filetype plugin on
-set completeopt-=preview
+" filetype plugin on
+" set completeopt-=preview
 
-let g:go_fmt_command = "goimports"
-let g:go_fmt_fail_silently = 1
+" let g:go_fmt_command = "goimports"
+" let g:go_fmt_fail_silently = 1
 " let g:go_highlight_types = 1
 " let g:go_highlight_extra_types = 1
 " let g:go_highlight_fields = 1
@@ -237,72 +223,72 @@ endif
 
 
 " Lightline
-let g:lightline = {
-\ 'colorscheme': 'minimal',
-\ 'active': {
-\   'left': [['mode', 'paste'], ['filename', 'modified']],
-\   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
-\ },
-\ 'component_expand': {
-\   'filename': 'LightlineFilename',
-\   'linter_warnings': 'LightlineLinterWarnings',
-\   'linter_errors': 'LightlineLinterErrors',
-\   'linter_ok': 'LightlineLinterOK'
-\ },
-\ 'component_type': {
-\   'readonly': 'error',
-\   'linter_warnings': 'warning',
-\   'linter_errors': 'error'
-\ },
-\ }
+" let g:lightline = {
+" \ 'colorscheme': 'minimal',
+" \ 'active': {
+" \   'left': [['mode', 'paste'], ['filename', 'modified']],
+" \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+" \ },
+" \ 'component_expand': {
+" \   'filename': 'LightlineFilename',
+" \   'linter_warnings': 'LightlineLinterWarnings',
+" \   'linter_errors': 'LightlineLinterErrors',
+" \   'linter_ok': 'LightlineLinterOK'
+" \ },
+" \ 'component_type': {
+" \   'readonly': 'error',
+" \   'linter_warnings': 'warning',
+" \   'linter_errors': 'error'
+" \ },
+" \ }
+"
+" function! LightlineFilename()
+"   let root = fnamemodify(get(b:, 'git_dir'), ':h')
+"   let path = expand('%:p')
+"   if path[:len(root)-1] ==# root
+"     return path[len(root)+1:]
+"   endif
+"   return expand('%')
+" endfunction
+"
+" function! LightlineLinterWarnings() abort
+"   let l:counts = ale#statusline#Count(bufnr(''))
+"   let l:all_errors = l:counts.error + l:counts.style_error
+"   let l:all_non_errors = l:counts.total - l:all_errors
+"   return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+" endfunction
+"
+" function! LightlineLinterErrors() abort
+"   let l:counts = ale#statusline#Count(bufnr(''))
+"   let l:all_errors = l:counts.error + l:counts.style_error
+"   let l:all_non_errors = l:counts.total - l:all_errors
+"   return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+" endfunction
+"
+" function! LightlineLinterOK() abort
+"   let l:counts = ale#statusline#Count(bufnr(''))
+"   let l:all_errors = l:counts.error + l:counts.style_error
+"   let l:all_non_errors = l:counts.total - l:all_errors
+"   return l:counts.total == 0 ? '✓ ' : ''
+" endfunction
 
-function! LightlineFilename()
-  let root = fnamemodify(get(b:, 'git_dir'), ':h')
-  let path = expand('%:p')
-  if path[:len(root)-1] ==# root
-    return path[len(root)+1:]
-  endif
-  return expand('%')
-endfunction
-
-function! LightlineLinterWarnings() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
-endfunction
-
-function! LightlineLinterErrors() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
-endfunction
-
-function! LightlineLinterOK() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '✓ ' : ''
-endfunction
-
-autocmd User ALELint call s:MaybeUpdateLightline()
+" autocmd User ALELint call s:MaybeUpdateLightline()
 
 " Update and show lightline but only if it's visible (e.g., not in Goyo)
-function! s:MaybeUpdateLightline()
-  if exists('#lightline')
-    call lightline#update()
-  end
-endfunction
+" function! s:MaybeUpdateLightline()
+  " if exists('#lightline')
+    " call lightline#update()
+  " end
+" endfunction
 
 "strip all trailing whitespace in file on save
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-function! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
+" autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+" function! <SID>StripTrailingWhitespaces()
+    " let l = line(".")
+    " let c = col(".")
+    " %s/\s\+$//e
+    " call cursor(l, c)
+" endfun
 
 " Colors
 syntax on
