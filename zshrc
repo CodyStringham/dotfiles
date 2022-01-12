@@ -8,8 +8,11 @@ ZSH_THEME=""
 autoload -U promptinit; promptinit
 prompt pure
 
+# Bat
+export BAT_THEME='Nord'
+
 # Editor
-export EDITOR='nvim -w'
+export EDITOR='nvim'
 
 # Enable IEx history
 # export ERL_AFLAGS="-kernel shell_history enabled"
@@ -37,14 +40,13 @@ export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 #FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+# export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='ag -g ""'
 
 
 # Aliases
-alias ctags="`brew --prefix`/bin/ctags"
-alias vim="nvim"
-alias vi="nvim"
-alias v="nvim ."
+alias derp=PB_IGNORE_DEPRECATIONS=1
+alias rubytag="ctags -R --languages=ruby --exclude=.git --exclude=log ."
 alias gocs="cd ~/go/src/github.com/codystringham"
 alias gonav="cd ~/go/src/git.nav.com/backend"
 alias k="kubectl"
@@ -58,8 +60,11 @@ alias docdown='docker-compose down'
 alias tls='tmux ls'
 alias merges='echo "git checkout stage && git pull --rebase && git merge master && git push && git checkout master" && git checkout stage && git pull --rebase && git merge master && git push && git checkout master'
 alias mergep='echo "git checkout production && git pull --rebase && git merge master && git push && git checkout master" && git checkout production && git pull --rebase && git merge master && git push && git checkout master'
-
 alias nsqstart='nsqlookupd & nsqd --lookupd-tcp-address=127.0.0.1:4160 & nsqadmin --lookupd-http-address=127.0.0.1:4161 &'
+alias vim="nvim"
+alias nats="PB_CLIENT_TYPE=protobuf/nats/client"
+alias natserv="nats PB_SERVER_TYPE=protobuf/nats/runner"
+alias bx="bundle exec"
 
 
 # Commands
@@ -74,3 +79,15 @@ pullvim() {DIRECTORY_TO_SYNC=~/dev/dotfiles/vim/pack/bundle/start/; for REPO in 
 pullnav() {DIRECTORY_TO_SYNC=~/nav/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd "$DIRECTORY_TO_SYNC/$REPO"; echo -e "\x1B[0;31m `pwd` \x1B[0m"; git pull --rebase); done; unset DIRECTORY_TO_SYNC;}
 trm() { tmux kill-session -t $1 }
 tcd() { tmux attach-session -t $1 }
+
+autoload -U +X bashcompinit && bashcompinit 
+autoload -U +X compinit && compinit 
+complete -W "$(cat ~/.tsh/complete*.txt)" ssh #mx-teleport-bash-complete
+
+tsh status 2>&1 | grep -q EXPIRED && printf "\e[93mYou need to run tlogin\e[0m\n" #mx-teleport-bash-notify
+
+export PATH="$PATH:$HOME/bin" #mx-teleport-bin
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+source ~/.rvm/scripts/rvm

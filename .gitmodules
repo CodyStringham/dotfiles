@@ -1,3 +1,6 @@
 [submodule "tmux-nova"]
 	path = tmux-nova
 	url = https://github.com/o0th/tmux-nova
+[submodule "tmux-themepack"]
+	path = tmux-themepack
+	url = https://github.com/jimeh/tmux-themepack
