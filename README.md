@@ -3,24 +3,20 @@
 Living repo of dotfiles and configurations.
 
 ## Packages
-- Theme: https://github.com/rakr/vim-one
-- Status Bar: https://github.com/itchyny/lightline.vim
-- Fuzzy Finder: https://github.com/ctrlpvim/ctrlp.vim
-- Elixir: https://github.com/elixir-lang/vim-elixir
-- Syntastic: https://github.com/vim-syntastic/syntastic
-- Git: https://github.com/tpope/vim-fugitive
-- Gitgutter: https://github.com/airblade/vim-gitgutter
-- Rails: https://github.com/tpope/vim-rails
+- Nord: https://www.nordtheme.com/
+- Vim-Plug: https://github.com/junegunn/vim-plug
+- FZF: https://github.com/junegunn/fzf
+- Bat: https://github.com/sharkdp/bat
+- CoC: https://github.com/neoclide/coc.nvim
+- TPM: https://github.com/tmux-plugins/tpm
+
 
 ## Usage
 This is meant to be cloned localy and pointed to with symbolic links so it can be easily shared and updated across machines.
 
-vim
 ```
 ln -s ~/dev/dotfiles/vim .vim
-```
-
-vimrc
-```
 ln -s ~/dev/dotfiles/vimrc .vimrc
+ln -s ~/dev/dotfiles/tmux.conf .tmux.conf
+ln -s ~/dev/dotfiles/zshrc .zshrc
 ```
