@@ -26,6 +26,9 @@ export PATH="$PATH:/usr/local/sbin"
 # GOPATH
 # export GOPATH="${HOME}/go"
 # export PATH="${PATH}:${GOPATH}/bin"
+export GO111MODULE='on'
+export GOPRIVATE='gitlab.mx.com'
+
 
 # CRYSTAL
 # export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
@@ -47,20 +50,15 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 # Aliases
 alias derp=PB_IGNORE_DEPRECATIONS=1
 alias rubytag="ctags -R --languages=ruby --exclude=.git --exclude=log ."
-alias gocs="cd ~/go/src/github.com/codystringham"
-alias gonav="cd ~/go/src/git.nav.com/backend"
 alias k="kubectl"
 alias zconfig="vim ~/.zshrc"
 alias zreset="source ~/.zshrc"
 alias yolo='git reset HEAD --hard && git clean -f -d'
-alias wipebranches='git branch | grep -ve " master$" | xargs git branch -D'
+alias greset='git checkout master && git pull && git branch --merged | grep -v "\*\|master\|sand\|qa" | xargs -n 1 git branch -d'
 alias killdoc='docker stop $(docker ps -a -q)'
 alias docup='docker-compose up -d'
 alias docdown='docker-compose down'
 alias tls='tmux ls'
-alias merges='echo "git checkout stage && git pull --rebase && git merge master && git push && git checkout master" && git checkout stage && git pull --rebase && git merge master && git push && git checkout master'
-alias mergep='echo "git checkout production && git pull --rebase && git merge master && git push && git checkout master" && git checkout production && git pull --rebase && git merge master && git push && git checkout master'
-alias nsqstart='nsqlookupd & nsqd --lookupd-tcp-address=127.0.0.1:4160 & nsqadmin --lookupd-http-address=127.0.0.1:4161 &'
 alias vim="nvim"
 alias nats="PB_CLIENT_TYPE=protobuf/nats/client"
 alias natserv="nats PB_SERVER_TYPE=protobuf/nats/runner"
@@ -73,7 +71,6 @@ kgrep() { k get pods | grep "$1" }
 replace() { ag --hidden -l "$1" > /tmp/list; cat /tmp/list; cat /tmp/list | xargs -I{} sed -i "$2" {} ;rm /tmp/list; }
 bench() { for i in {1..5}; curl -s -w "%{time_total}\n" -o /dev/null $1 }
 lsport() { lsof -i -P -n | grep $1 }
-
 newgemset() { source ~/.rvm/scripts/rvm; rvm --ruby-version use $1@$2 --create }
 pullvim() {DIRECTORY_TO_SYNC=~/dev/dotfiles/vim/pack/bundle/start/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd "$DIRECTORY_TO_SYNC/$REPO"; echo -e "\x1B[0;31m `pwd` \x1B[0m"; git pull --rebase); done; unset DIRECTORY_TO_SYNC;}
 pullnav() {DIRECTORY_TO_SYNC=~/nav/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd "$DIRECTORY_TO_SYNC/$REPO"; echo -e "\x1B[0;31m `pwd` \x1B[0m"; git pull --rebase); done; unset DIRECTORY_TO_SYNC;}
