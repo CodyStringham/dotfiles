@@ -1,7 +1,8 @@
 vim/.netrwhist
-
 vim/undo/*
-
 vim/plugged/
+
+nvim/undo/*
+nvim/plugged/
 
 .DS_Store
