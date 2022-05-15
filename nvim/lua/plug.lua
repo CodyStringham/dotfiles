@@ -17,6 +17,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
   Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn[':TSUpdate']})
   Plug('nvim-lualine/lualine.nvim')
   Plug('rmehri01/onenord.nvim', {['branch'] = 'main' })
+  Plug('cocopon/iceberg.vim')
 
   Plug('/usr/local/opt/fzf')
   Plug('junegunn/fzf', {['do'] = vim.fn['fzf#install']})
@@ -24,8 +25,8 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 
   Plug('benmills/vimux')
   Plug('christoomey/vim-tmux-navigator')
+  Plug('qpkorr/vim-bufkill')
 
-  Plug('JamshedVesuna/vim-markdown-preview')
   Plug('airblade/vim-gitgutter')
   Plug('tpope/vim-fugitive')
   Plug('tpope/vim-commentary')
@@ -34,11 +35,6 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
   Plug('tpope/vim-rails')
   Plug('Raimondi/delimitMate')
   Plug('Yggdroot/indentLine')
-  Plug('qpkorr/vim-bufkill')
-
-  Plug('cocopon/iceberg.vim')
-  Plug('drewtempelmeyer/palenight.vim')
-  Plug('michaeldyrynda/carbon')
 vim.call('plug#end')
 
 
@@ -50,8 +46,8 @@ require('onenord').setup()
 require('lualine').setup {
   options = {
     theme = 'onenord',
-    section_separators = { left = '', right = '' },
-    component_separators = { left = '|', right = '|' }
+    section_separators = { left = ' ', right = ' ' },
+    component_separators = { left = ' ', right = ' ' }
   }
 }
 
@@ -162,7 +158,18 @@ require('lspconfig')['gopls'].setup {
 
 
 -- Nvim Devicons
-require('nvim-web-devicons').setup()
+require('nvim-web-devicons').setup{
+ -- your personnal icons can go here (to override)
+ -- you can specify color or cterm_color instead of specifying both of them
+ -- DevIcon will be appended to `name`
+ override = {
+  ["rb"] = {
+    icon = "",
+    color = "#d27277",
+    name = "Rb",
+  },
+ };
+}
 
 -- Nvim Tree
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true})
@@ -287,6 +294,35 @@ require('nvim-treesitter.configs').setup {
   ensure_installed = { "ruby", "go", "proto", "html", "json", "lua", "javascript" },
   sync_install = true,
 }
+
+
+-- Tmux Navigator
+vim.cmd[[
+if exists('$TMUX')
+  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+    let previous_winnr = winnr()
+    silent! execute "wincmd " . a:wincmd
+    if previous_winnr == winnr()
+      call system("tmux select-pane -" . a:tmuxdir)
+      redraw!
+    endif
+  endfunction
+
+  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+
+  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+else
+  map <C-h> <C-w>h
+  map <C-j> <C-w>j
+  map <C-k> <C-w>k
+  map <C-l> <C-w>l
+endif
+]]
 
 
 -- Vimux

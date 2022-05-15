@@ -131,7 +131,7 @@ font:
   # spacing.
   offset:
   #  x: 0
-    y: 0
+    y: 10
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
@@ -155,48 +155,103 @@ font:
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
+#
 
-# Colors (Palenight)
+# Colors (Onenord)
 colors:
   # Default colors
   primary:
-    background: '0x292d3e'
-    foreground: '0x959dcb'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x292d3e'
-    cursor: '0x959dcb'
+    background: '0x353b49'
+    foreground: '0xC8D0E0'
 
   # Normal colors
   normal:
-    black:   '0x292d3e'
-    red:     '0xf07178'
-    green:   '0xc3e88d'
-    yellow:  '0xffcb6b'
-    blue:    '0x82aaff'
-    magenta: '0xc792ea'
-    cyan:    '0x89ddff'
-    white:   '0x959dcb'
+    black:   '0x3B4252'
+    red:     '0xBF616A'
+    green:   '0xA3BE8C'
+    yellow:  '0xEBCB8B'
+    blue:    '0x81A1C1'
+    magenta: '0xB988B0'
+    cyan:    '0x88C0D0'
+    white:   '0xE5E9F0'
 
   # Bright colors
   bright:
-    black:   '0x676e95'
-    red:     '0xf07178'
-    green:   '0xc3e88d'
-    yellow:  '0xffcb6b'
-    blue:    '0x82aaff'
-    magenta: '0xc792ea'
-    cyan:    '0x89ddff'
-    white:   '0xffffff'
+    black:   '0x4C566A'
+    red:     '0xBF616A'
+    green:   '0xA3BE8C'
+    yellow:  '0xEBCB8B'
+    blue:    '0x81A1C1'
+    magenta: '0xB988B0'
+    cyan:    '0x8FBCBB'
+    white:   '0xECEFF4'
 
-  indexed_colors:
-    - { index: 16, color: '0xf78c6c' }
-    - { index: 17, color: '0xff5370' }
-    - { index: 18, color: '0x444267' }
-    - { index: 19, color: '0x32374d' }
-    - { index: 20, color: '0x8796b0' }
-    - { index: 21, color: '0x959dcb' }
+  search:
+    matches:
+     foreground: '#81A1C1'
+     background: '#4C566A'
+    focused_match:
+     foreground: '#EBCB8B'
+     background: '#4C566A'
+
+    bar:
+     background: '#434C5E'
+     foreground: '#88C0D0'
+
+  hints:
+    start:
+     foreground: '#B988B0'
+     background: '#4C566A'
+
+    end:
+     foreground: '#81A1C1'
+     background: '#4C566A'
+
+  selection:
+   text: CellForeground
+   background: '#3F4758'
+
+# Colors (Palenight)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x292d3e'
+#     foreground: '0x959dcb'
+
+#   # Colors the cursor will use if `custom_cursor_colors` is true
+#   cursor:
+#     text: '0x292d3e'
+#     cursor: '0x959dcb'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x292d3e'
+#     red:     '0xf07178'
+#     green:   '0xc3e88d'
+#     yellow:  '0xffcb6b'
+#     blue:    '0x82aaff'
+#     magenta: '0xc792ea'
+#     cyan:    '0x89ddff'
+#     white:   '0x959dcb'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x676e95'
+#     red:     '0xf07178'
+#     green:   '0xc3e88d'
+#     yellow:  '0xffcb6b'
+#     blue:    '0x82aaff'
+#     magenta: '0xc792ea'
+#     cyan:    '0x89ddff'
+#     white:   '0xffffff'
+
+#   indexed_colors:
+#     - { index: 16, color: '0xf78c6c' }
+#     - { index: 17, color: '0xff5370' }
+#     - { index: 18, color: '0x444267' }
+#     - { index: 19, color: '0x32374d' }
+#     - { index: 20, color: '0x8796b0' }
+#     - { index: 21, color: '0x959dcb' }
 
 # Colors (Nord)
 # colors:
