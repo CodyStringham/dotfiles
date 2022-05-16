@@ -1,60 +1,56 @@
-local set = vim.opt
+local utils = require "utils"
+local theme = require "theme"
 
--- general
-set.hidden = true           -- Allows unsaved buffer to be hidden instead of required save
-set.backspace = '2'         -- Backspace deletes like most programs in insert mode
-set.history = 50            -- Set history to 50
-set.ruler = true            -- Show the cursor position all the time
-set.showcmd = true          -- Display incomplete commands
-set.incsearch = true        -- Do incremental searching
-set.laststatus = 2          -- Always display the status line
-set.autowrite = true        -- Automatically :write before running commands
-set.clipboard = 'unnamed'   -- Should always copy to system clipboard
-set.mouse = 'a'             -- Use the mouse!
+vim.g.mapleader = " "
 
--- line number
-set.ruler = true
-set.number = true
-set.numberwidth = 5
-
--- Softtabs, 2 spaces
-set.tabstop = 2
-set.shiftwidth = 2
-set.shiftround = true
-set.expandtab = true
-
--- Splits
-set.splitbelow = true
-set.splitright = true
-
--- buffers
-vim.cmd[[
-  nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-  nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
-  map <silent> <Leader>x :BD<CR>
-]]
-
--- Get off my lawn
-vim.keymap.set('n', '<Left>', ':echoe "Use h"<CR>', { noremap = true})
-vim.keymap.set('n', '<Right>', ':echoe "Use l"<CR>', { noremap = true})
-vim.keymap.set('n', '<Up>', ':echoe "Use k"<CR>', { noremap = true})
-vim.keymap.set('n', '<Down>', ':echoe "Use j"<CR>', { noremap = true})
-
--- clear highlight
-vim.keymap.set('n', '<leader>h', ':noh<CR>')
-
--- Persistent Undo
-vim.cmd[[
-  set undofile                 " Save undos after file closes
-  set undodir=$HOME/.nvim/undo " Where to save undo histories
-  set undolevels=1000          " How many undos
-  set undoreload=10000         " Number of lines to save for undo
-]]
-
--- Colors
 vim.cmd [[
-  syntax on
-  set cursorline
-  set termguicolors
-  set background=dark
+  set fcs=eob:\ 
+  filetype plugin indent on
 ]]
+
+local options = {
+    termguicolors = true,
+    fileencoding = "utf-8",
+    backup = false,
+    swapfile = false,
+    hlsearch = true,
+    incsearch = true,
+    showmode = false,
+    expandtab = true,
+    shiftwidth = 2,
+    tabstop = 2,
+    scrolloff = 5,
+    sidescrolloff = 5,
+    smartindent = true,
+    signcolumn = "yes",
+    hidden = true,
+    ignorecase = true,
+    timeoutlen = 1000,
+    shiftround = true,
+    smartcase = true,
+    splitbelow = true,
+    splitright = true,
+    number = true,
+    clipboard = "unnamed",
+    cursorline = true,
+    mouse = "a",
+    cmdheight = 1,
+    undodir = "/tmp/.nvimdid",
+    undofile = true,
+    undolevels = 1000,
+    undoreload = 10000,
+    pumheight = 10,
+    laststatus = 3,
+    updatetime = 250,
+    background = "dark",
+}
+
+vim.opt.shortmess:append "c"
+
+for key, value in pairs(options) do
+    vim.opt[key] = value
+end
+
+utils.setSpacesSize { go = 4, python = 4, rust = 4, cpp = 4, c = 4 }
+
+theme.init()

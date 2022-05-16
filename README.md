@@ -3,11 +3,14 @@
 Living repo of dotfiles and configurations.
 
 ## Packages
-- Nord: https://www.nordtheme.com/
-- Vim-Plug: https://github.com/junegunn/vim-plug
+- Packer: https://github.com/wbthomason/packer.nvim 
 - FZF: https://github.com/junegunn/fzf
 - Bat: https://github.com/sharkdp/bat
 - TPM: https://github.com/tmux-plugins/tpm
+```
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
 
 
 ## Usage
