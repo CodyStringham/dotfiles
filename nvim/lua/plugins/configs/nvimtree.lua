@@ -97,7 +97,9 @@ nvimtree.setup {
         side = "left",
         mappings = {
             custom_only = false,
-            list = {},
+            list = {
+              { key = "<C-t>", action = "" },
+            },
         },
         number = false,
         relativenumber = false,

@@ -79,6 +79,7 @@ return packer.startup(function(use)
     use { "windwp/nvim-autopairs", config = require "plugins.configs.autopairs" }
     use { "norcalli/nvim-colorizer.lua", config = require "plugins.configs.colorizer" }
     use { "qpkorr/vim-bufkill" }
+    use { "tpope/vim-rails" }
 
 
     -- LSP

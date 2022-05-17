@@ -8,7 +8,7 @@ vim.cmd[[
 ]]
 
 -- Telescope
-vim.keymap.set('n', '<C-t>', ':Telescope<CR>')
+vim.keymap.set('n', '<C-t>', ':Telescope find_files<CR>')
 
 -- Clear Highlight
 vim.keymap.set('n', '<leader>h', ':noh<CR>')
