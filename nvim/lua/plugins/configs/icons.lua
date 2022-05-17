@@ -38,11 +38,6 @@ web_devicons.setup {
             color = colors.blue,
             name = "ts",
         },
-        kt = {
-            icon = "󱈙",
-            color = colors.orange,
-            name = "kt",
-        },
         png = {
             icon = "",
             color = colors.magenta,
@@ -73,10 +68,85 @@ web_devicons.setup {
             color = colors.blue,
             name = "out",
         },
+        mod = {
+            icon = "",
+            color = colors.grey9,
+            name = "mod",
+        },
+        sum = {
+            icon = "",
+            color = colors.grey9,
+            name = "sum",
+        },
+        go = {
+            icon = "",
+            color = colors.blue,
+            name = "go",
+        },
         rb = {
             icon = "",
             color = colors.red,
             name = "rb",
+        },
+        rake = {
+            icon = "",
+            color = colors.red,
+            name = "rake",
+        },
+        gemspec = {
+            icon = "",
+            color = colors.red,
+            name = "gemspec",
+        },
+        proto = {
+            icon = "",
+            color = colors.green,
+            name = "proto"
+        },
+        ["Gemfile"] = {
+            icon = "",
+            color = colors.red,
+            name = "gemfile",
+        },
+        ["Capfile"] = {
+            icon = "",
+            color = colors.red,
+            name = "capfile",
+        },
+        ["Rakefile"] = {
+            icon = "",
+            color = colors.red,
+            name = "Rakefile",
+        },
+        [".yardopts"] = {
+            icon = "",
+            color = colors.blue,
+            name = "yardopts",
+        },
+        [".ruby-gemset"] = {
+            icon = "",
+            color = colors.red,
+            name = "rubygemset",
+        },
+        [".ruby-version"] = {
+            icon = "",
+            color = colors.red,
+            name = "rubyversion",
+        },
+        [".tool-versions"] = {
+            icon = "",
+            color = colors.grey9,
+            name = "toolversions",
+        },
+        [".versions.conf"] = {
+            icon = "",
+            color = colors.grey9,
+            name = "versionsconf",
+        },
+        [".rspec"] = {
+            icon = "",
+            color = colors.grey9,
+            name = "rspec",
         },
         vue = {
             icon = "﵂",
@@ -158,10 +228,10 @@ web_devicons.setup {
             color = colors.yellow,
             name = "envtest",
         },
-        [".env.example"] = {
+        ["sample"] = {
             icon = "",
             color = colors.yellow,
-            name = "dotenvexample",
+            name = "sample",
         },
         [".env"] = {
             icon = "",
