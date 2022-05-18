@@ -5,7 +5,7 @@ if not ok then
 end
 
 local colors = require("theme").colors
-local powerline = require("utils").powerline.none
+local powerline = require("utils").powerline.circle
 
 local mode_color = {
     n = colors.cyan,

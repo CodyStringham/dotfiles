@@ -26,7 +26,7 @@ telescope.setup {
         initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "ascending",
-        layout_strategy = "horizontal",
+        -- layout_strategy = "horizontal",
         layout_config = {
             horizontal = {
                 prompt_position = "top",
@@ -41,12 +41,12 @@ telescope.setup {
             preview_cutoff = 120,
         },
         file_sorter = require("telescope.sorters").get_fuzzy_file,
-        file_ignore_patterns = { "node_modules", ".git/", "dist/", ".DS*" },
+        file_ignore_patterns = { "node_modules", ".git/", "dist/", ".DS*", "coverage" },
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
         path_display = { "absolute" },
         winblend = 0,
-        border = {},
-        borderchars = { "" },
+        -- border = {},
+        -- borderchars = { "" },
         color_devicons = true,
         use_less = true,
         set_env = { ["COLORTERM"] = "truecolor" },
@@ -56,12 +56,12 @@ telescope.setup {
         buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
         mappings = {
             i = {
-                ["<Tab>"] = "move_selection_next",
-                ["<S-Tab>"] = "move_selection_previous",
+                ["<C-j>"] = "move_selection_next",
+                ["<C-k>"] = "move_selection_previous",
             },
             n = {
-                ["<Tab>"] = "move_selection_next",
-                ["<S-Tab>"] = "move_selection_previous",
+                ["<C-j>"] = "move_selection_next",
+                ["<C-k>"] = "move_selection_previous",
             },
         },
     },

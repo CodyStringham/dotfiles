@@ -23,7 +23,7 @@ env:
   # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
 
-#window:
+window:
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. The number of columns
@@ -45,12 +45,12 @@ env:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
+  # padding:
   #  x: 0
   #  y: 0
 
   # Spread additional padding evenly around the terminal content.
-  #dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -61,7 +61,7 @@ env:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  #decorations: full
+  decorations: buttonless
 
   # Background opacity
   #
@@ -111,34 +111,31 @@ env:
 font:
   size: 13.0
   normal:
-    family: InputMono Nerd Font
+    family: Input Nerd Font Mono
     style: Regular
-
-  # bold:
-  #   family: InputMono Nerd Font
-  #   style: Bold
-
-  # italic:
-  #   family: InputMono Nerd Font
-  #   style: Italic
-
-  # bold_italic:
-  #   family: InputMono Nerd Font
-  #   style: Bold Italic
+  bold:
+    family: Input Nerd Font Mono
+    style: Bold
+  italic:
+    family: Input Nerd Font Mono
+    style: Italic
+  bold_italic:
+    family: Input Nerd Font Mono
+    style: Bold Italic
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
-  offset:
-  #  x: 0
-    y: 10
+  # offset:
+  #   x: 0
+  #   y: 20
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
   # right, increasing `y` moves the glyph upward.
-  #glyph_offset:
-  #  x: 0
-  #  y: 0
+  # glyph_offset:
+  #   x: 0
+  #   y: 0
 
   # Thin stroke font rendering (macOS only)
   #
@@ -153,9 +150,9 @@ font:
   #
   # builtin_box_drawing: true
 
-# If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: false
-#
+  # If `true`, bold text is drawn using the bright color variants.
+  # draw_bold_text_with_bright_colors: false
+  #
 
 # Colors (Onenord)
 colors:
