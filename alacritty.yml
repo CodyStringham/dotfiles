@@ -109,18 +109,18 @@ window:
 
 # Font configuration
 font:
-  size: 13.0
+  size: 12.0
   normal:
-    family: Input Nerd Font Mono
+    family: Input Nerd Font
     style: Regular
   bold:
-    family: Input Nerd Font Mono
+    family: Input Nerd Font
     style: Bold
   italic:
-    family: Input Nerd Font Mono
+    family: Input Nerd Font
     style: Italic
   bold_italic:
-    family: Input Nerd Font Mono
+    family: Input Nerd Font
     style: Bold Italic
 
   # Offset is the extra space around each character. `offset.y` can be thought
