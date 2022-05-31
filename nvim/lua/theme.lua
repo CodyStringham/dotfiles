@@ -33,13 +33,13 @@ _M.colors = {
 }
 
 _M.init = function()
-    local isExistNord, onenord = pcall(require, "onenord")
-    if isExistNord then
+    local isExistOneNord, onenord = pcall(require, "onenord")
+    if isExistOneNord then
         onenord.setup {
             borders = true,
             fade_nc = false,
             styles = {
-                comments = "italic",
+                comments = "NONE",
                 strings = "NONE",
                 keywords = "NONE",
                 functions = "italic",

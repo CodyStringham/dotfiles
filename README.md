@@ -20,3 +20,8 @@ ln -s ~/dev/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dev/dotfiles/zshrc ~/.zshrc
 ln -s ~/dev/dotfiles/alacritty.yml ~/.alacritty.yml
 ```
+
+## Tmux config
+```
+tic -x tmux.terminfo
+```

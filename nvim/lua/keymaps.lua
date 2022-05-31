@@ -18,6 +18,15 @@ vim.keymap.set('n', '<leader>h', ':noh<CR>')
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true})
 vim.keymap.set('n', '<Leader>n', ':NvimTreeFindFile<CR>', { noremap = true, silent = true})
 
+-- Vimux
+vim.cmd[[ map <expr> <Leader>c ":call VimuxRunCommand('clear; " . input("Command to run: ") . "')<CR>" ]]
+vim.keymap.set('n', '<Leader>r',   ':call VimuxRunLastCommand()<CR>')
+vim.keymap.set('n', '<Leader>rt',  ':call VimuxRunCommand("clear; bundle exec rails test " . bufname("%"))<CR>')
+vim.keymap.set('n', '<Leader>RT',  ':call VimuxRunCommand("clear; bundle exec rails test")<CR>')
+vim.keymap.set('n', '<Leader>rs',  ':call VimuxRunCommand("clear; derp JRUBY_OPTS=--debug bundle exec rspec " . bufname("%"))<CR>')
+vim.keymap.set('n', '<Leader>rsl', ':call VimuxRunCommand("clear; derp JRUBY_OPTS=--debug bundle exec rspec " . bufname("%") . ":" . line("."))<CR>')
+vim.keymap.set('n', '<Leader>RS',  ':call VimuxRunCommand("clear; derp JRUBY_OPTS=--debug bundle exec rspec")<CR>')
+
 -- if not ok then
 --     return
 -- end
