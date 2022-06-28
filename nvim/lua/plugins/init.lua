@@ -69,6 +69,7 @@ return packer.startup(function(use)
         "nvim-telescope/telescope.nvim",
         requires = {
             "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-live-grep-args.nvim",
         },
         config = require "plugins.configs.telescope",
     }
@@ -91,6 +92,12 @@ return packer.startup(function(use)
     use {
         "jose-elias-alvarez/null-ls.nvim",
         requires = { "nvim-lua/plenary.nvim" },
+    }
+    use {
+        "j-hui/fidget.nvim",
+        config = function()
+            require "plugins.configs.fidget"
+        end,
     }
 
 

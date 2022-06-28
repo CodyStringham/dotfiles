@@ -9,10 +9,10 @@ vim.cmd[[
 
 -- Telescope
 vim.keymap.set('n', '<C-t>', ':Telescope find_files<CR>')
+vim.keymap.set('n', '<C-f>', ':Telescope live_grep<CR>')
 
 -- Clear Highlight
 vim.keymap.set('n', '<leader>h', ':noh<CR>')
-
 
 -- NvimTree
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true})

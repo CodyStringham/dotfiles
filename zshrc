@@ -53,7 +53,7 @@ alias rubytag="ctags -R --languages=ruby --exclude=.git --exclude=log ."
 alias k="kubectl"
 alias zconfig="vim ~/.zshrc"
 alias zreset="source ~/.zshrc"
-alias yolo='git reset HEAD --hard && git clean -f -d'
+alias yolo='git reset HEAD --hard && git clean -fd'
 alias greset='git checkout master && git pull && git branch --merged | grep -v "\*\|master\|sand\|qa" | xargs -n 1 git branch -d'
 alias killdoc='docker stop $(docker ps -a -q)'
 alias docup='docker-compose up -d'
@@ -63,6 +63,8 @@ alias vim="nvim"
 alias nats="PB_CLIENT_TYPE=protobuf/nats/client"
 alias natserv="nats PB_SERVER_TYPE=protobuf/nats/runner"
 alias bx="bundle exec"
+alias railsmigrate="bx rails db:migrate && RAILS_ENV=test bx rails db:migrate"
+alias railrollback="bx rails db:rollback && RAILS_ENV=test bx rails db:rollback"
 
 
 # Commands
@@ -76,6 +78,7 @@ pullvim() {DIRECTORY_TO_SYNC=~/dev/dotfiles/vim/pack/bundle/start/; for REPO in 
 pullnav() {DIRECTORY_TO_SYNC=~/nav/; for REPO in `ls $DIRECTORY_TO_SYNC`; do (cd "$DIRECTORY_TO_SYNC/$REPO"; echo -e "\x1B[0;31m `pwd` \x1B[0m"; git pull --rebase); done; unset DIRECTORY_TO_SYNC;}
 trm() { tmux kill-session -t $1 }
 tcd() { tmux attach-session -t $1 }
+GCO() { git checkout "$(git branch $1 | fzf | tr -d '[:space:]')" }
 
 autoload -U +X bashcompinit && bashcompinit 
 autoload -U +X compinit && compinit 
