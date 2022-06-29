@@ -7,9 +7,9 @@ vim.cmd[[
   map <silent> <Leader>x :BD<CR>
 ]]
 
--- Telescope
-vim.keymap.set('n', '<C-t>', ':Telescope find_files<CR>')
-vim.keymap.set('n', '<C-f>', ':Telescope live_grep<CR>')
+-- Fzf.vim
+vim.keymap.set('n', '<C-t>', ':Files<CR>')
+vim.keymap.set('n', '<C-f>', ':Ag ')
 
 -- Clear Highlight
 vim.keymap.set('n', '<leader>h', ':noh<CR>')

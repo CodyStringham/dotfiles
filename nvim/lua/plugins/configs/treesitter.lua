@@ -9,6 +9,10 @@ treesitter.setup {
         enable = true,
     },
     ensure_installed = "all",
+
+    -- List of parsers to ignore installing (for "all")
+    ignore_install = { "phpdoc" },
+
     highlight = {
         enable = true,
     }

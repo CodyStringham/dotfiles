@@ -1,19 +1,20 @@
 local utils = require "utils"
 
 -- local servers = {
---     "bashls",
---     "sumneko_lua",
 --     "cssls",
 --     "html",
 --     "jsonls",
 --     "yamlls",
 --     "dockerls",
---     "sumneko_lua",
 --     "gopls",
 -- }
 
 local servers = {
+  "bashls",
+  "dartls",
   "solargraph",
+  "sumneko_lua",
+  "tsserver",
 }
 
 -- Floating border
@@ -35,6 +36,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>fmt", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

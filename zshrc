@@ -5,6 +5,7 @@ source $ZSH/oh-my-zsh.sh
 ZSH_THEME=""
 
 # Prompt
+fpath+=/opt/homebrew/share/zsh/site-functions
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -22,6 +23,8 @@ export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/usr/bin"
 export PATH="$PATH:/bin"
 export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:$HOME/tools/flutter/bin"
+export PATH="$PATH:$HOME/tools/lua-language-server/bin"
 
 # GOPATH
 # export GOPATH="${HOME}/go"
@@ -34,7 +37,7 @@ export GOPRIVATE='gitlab.mx.com'
 # export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 
 # JAVAPATH
-export JDK_HOME="/Users/cody.stringham/.asdf/installs/java/liberica-1.8.0"
+export JDK_HOME="$HOME/.asdf/installs/java/openjdk-18"
 export JAVA_HOME=${JDK_HOME}
 export PATH="$PATH:${JAVA_HOME}"
 
@@ -82,12 +85,17 @@ GCO() { git checkout "$(git branch $1 | fzf | tr -d '[:space:]')" }
 
 autoload -U +X bashcompinit && bashcompinit 
 autoload -U +X compinit && compinit 
-complete -W "$(cat ~/.tsh/complete*.txt)" ssh #mx-teleport-bash-complete
+
+ #mx-teleport-bash-complete
+[ -d "$HOME/.tsh" ] && complete -W "$(cat ~/.tsh/complete*.txt)" ssh
 
 tsh status 2>&1 | grep -q EXPIRED && printf "\e[93mYou need to run tlogin\e[0m\n" #mx-teleport-bash-notify
 
 export PATH="$PATH:$HOME/bin" #mx-teleport-bin
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-source ~/.rvm/scripts/rvm
+# export PATH="$PATH:$HOME/.rvm/bin"
+# source ~/.rvm/scripts/rvm
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+alias luamake=/Users/cody/tools/lua-language-server/3rd/luamake/luamake

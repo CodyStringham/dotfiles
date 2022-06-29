@@ -65,15 +65,8 @@ return packer.startup(function(use)
 
 
     -- Utilities
-    use {
-        "nvim-telescope/telescope.nvim",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope-live-grep-args.nvim",
-        },
-        config = require "plugins.configs.telescope",
-    }
-    use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+    use { 'junegunn/fzf', run = ":call fzf#install()" }
+    use { 'junegunn/fzf.vim' }
     use {
         "kyazdani42/nvim-tree.lua",
         requires = {
@@ -140,6 +133,10 @@ return packer.startup(function(use)
         },
         config = require "plugins.configs.gitsigns",
     }
+
+    -- Flutter
+    use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
+    use {'dart-lang/dart-vim-plugin'}
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
