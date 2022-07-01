@@ -37,7 +37,7 @@ export GOPRIVATE='gitlab.mx.com'
 # export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 
 # JAVAPATH
-export JDK_HOME="$HOME/.asdf/installs/java/openjdk-18"
+export JDK_HOME="$HOME/.asdf/installs/java/adoptopenjdk-8.0.332+9"
 export JAVA_HOME=${JDK_HOME}
 export PATH="$PATH:${JAVA_HOME}"
 
@@ -68,6 +68,7 @@ alias natserv="nats PB_SERVER_TYPE=protobuf/nats/runner"
 alias bx="bundle exec"
 alias railsmigrate="bx rails db:migrate && RAILS_ENV=test bx rails db:migrate"
 alias railrollback="bx rails db:rollback && RAILS_ENV=test bx rails db:rollback"
+alias luamake=/Users/cody/tools/lua-language-server/3rd/luamake/luamake
 
 
 # Commands
@@ -86,16 +87,11 @@ GCO() { git checkout "$(git branch $1 | fzf | tr -d '[:space:]')" }
 autoload -U +X bashcompinit && bashcompinit 
 autoload -U +X compinit && compinit 
 
- #mx-teleport-bash-complete
+. /usr/local/opt/asdf/libexec/asdf.sh
+
+
+ #mx teleport start
 [ -d "$HOME/.tsh" ] && complete -W "$(cat ~/.tsh/complete*.txt)" ssh
-
-tsh status 2>&1 | grep -q EXPIRED && printf "\e[93mYou need to run tlogin\e[0m\n" #mx-teleport-bash-notify
-
 export PATH="$PATH:$HOME/bin" #mx-teleport-bin
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-# source ~/.rvm/scripts/rvm
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-alias luamake=/Users/cody/tools/lua-language-server/3rd/luamake/luamake
+tsh status 2>&1 | grep -q EXPIRED && printf "\e[93mYou need to run tlogin\e[0m\n" #mx-teleport-bash-notify
+ #mx teleport end
