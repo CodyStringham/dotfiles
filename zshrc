@@ -9,6 +9,9 @@ fpath+=/opt/homebrew/share/zsh/site-functions
 autoload -U promptinit; promptinit
 prompt pure
 
+# Tmux Spotify
+export MUSIC_APP="Music"
+
 # Bat
 export BAT_THEME='Nord'
 
