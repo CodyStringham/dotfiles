@@ -6,6 +6,7 @@ Living repo of dotfiles and configurations.
 ## Packages
 - FZF: https://github.com/junegunn/fzf
 - Bat: https://github.com/sharkdp/bat
+- Delta: https://github.com/dandavison/delta
 - TPM: https://github.com/tmux-plugins/tpm
 - Packer: https://github.com/wbthomason/packer.nvim 
 ```
