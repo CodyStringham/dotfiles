@@ -90,7 +90,7 @@ nvimtree.setup {
         timeout = 500,
     },
     view = {
-        width = 55,
+        width = 35,
         height = 30,
         hide_root_folder = true,
         side = "left",
@@ -113,7 +113,7 @@ nvimtree.setup {
             global = false,
         },
         open_file = {
-            quit_on_open = true,
+            quit_on_open = false,
         },
     },
 }
