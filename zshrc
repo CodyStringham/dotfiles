@@ -90,8 +90,8 @@ GCO() { git checkout "$(git branch $1 | fzf | tr -d '[:space:]')" }
 autoload -U +X bashcompinit && bashcompinit 
 autoload -U +X compinit && compinit 
 
-. /usr/local/opt/asdf/libexec/asdf.sh
-
+# asdf 
+source $(brew --prefix asdf)/libexec/asdf.sh
 
  #mx teleport start
 [ -d "$HOME/.tsh" ] && complete -W "$(cat ~/.tsh/complete*.txt)" ssh
