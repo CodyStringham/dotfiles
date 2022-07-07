@@ -30,8 +30,8 @@ export PATH="$PATH:$HOME/tools/flutter/bin"
 export PATH="$PATH:$HOME/tools/lua-language-server/bin"
 
 # GOPATH
-# export GOPATH="${HOME}/go"
-# export PATH="${PATH}:${GOPATH}/bin"
+export GOPATH="${HOME}/go"
+export PATH="${PATH}:${GOPATH}/bin"
 export GO111MODULE='on'
 export GOPRIVATE='gitlab.mx.com'
 

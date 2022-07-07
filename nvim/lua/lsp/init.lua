@@ -6,12 +6,12 @@ local utils = require "utils"
 --     "jsonls",
 --     "yamlls",
 --     "dockerls",
---     "gopls",
 -- }
 
 local servers = {
   "bashls",
   "dartls",
+  "gopls",
   "solargraph",
   "sumneko_lua",
   "tsserver",
