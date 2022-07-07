@@ -37,3 +37,18 @@ ln -s ~/dev/dotfiles/alacritty.yml ~/.alacritty.yml
 ```
 tic -x tmux.terminfo
 ```
+
+
+## Delta config
+```
+[delta]
+    navigate = true
+    light = false
+    side-by-side = true
+    paging = always
+    minus-style = red bold
+    line-numbers-minus-style = red bold
+    plus-style = green bold
+    line-numbers-plus-style = green bold
+    line-numbers-zero-style = white
+```
