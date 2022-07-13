@@ -8,11 +8,28 @@ treesitter.setup {
     autotag = {
         enable = true,
     },
-    ensure_installed = "all",
-
-    -- List of parsers to ignore installing (for "all")
-    ignore_install = { "phpdoc" },
-
+    ensure_installed = {
+      "bash",
+      "css",
+      "dart",
+      "dockerfile",
+      "go",
+      "gomod",
+      "graphql",
+      "html",
+      "javascript",
+      "json",
+      "json5",
+      "lua",
+      "regex",
+      "ruby",
+      "scss",
+      "sql",
+      "typescript",
+      "vim",
+      "vue",
+      "yaml",
+    },
     highlight = {
         enable = true,
     }
