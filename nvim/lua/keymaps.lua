@@ -11,6 +11,10 @@ vim.cmd[[
 vim.keymap.set('n', '<C-t>', ':Files<CR>')
 vim.keymap.set('n', '<C-f>', ':Ag ')
 
+-- Paste in word
+vim.keymap.set('n', '<C-p>', 'viwp')
+vim.keymap.set('n', '<C-y>', 'yiw')
+
 -- Clear Highlight
 vim.keymap.set('n', '<leader>h', ':noh<CR>')
 
