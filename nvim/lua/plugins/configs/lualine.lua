@@ -43,10 +43,7 @@ local config = {
         globalstatus = true,
         component_separators = "",
         section_separators = "",
-        theme = {
-            normal = { c = { fg = colors.grey9, bg = colors.grey13 } },
-            inactive = { c = { fg = colors.grey9, bg = colors.bg } },
-        },
+        theme = 'onenord'
     },
     sections = {
         lualine_a = {},

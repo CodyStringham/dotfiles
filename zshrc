@@ -75,6 +75,7 @@ alias luamake=/Users/cody/tools/lua-language-server/3rd/luamake/luamake
 
 
 # Commands
+source ~/dev/dotfiles/kube.sh #kube commands
 kssh() {pod=`kubectl get pods | grep "$1" | awk '{print $1}' | head -n 1`; kubectl exec -it --request-timeout=5s $pod bash }
 kgrep() { k get pods | grep "$1" }
 replace() { ag --hidden -l "$1" > /tmp/list; cat /tmp/list; cat /tmp/list | xargs -I{} sed -i "$2" {} ;rm /tmp/list; }
@@ -87,6 +88,7 @@ trm() { tmux kill-session -t $1 }
 tcd() { tmux attach-session -t $1 }
 GCO() { git checkout "$(git branch $1 | fzf | tr -d '[:space:]')" }
 
+
 autoload -U +X bashcompinit && bashcompinit 
 autoload -U +X compinit && compinit 
 
@@ -97,4 +99,6 @@ source $(brew --prefix asdf)/libexec/asdf.sh
 [ -d "$HOME/.tsh" ] && complete -W "$(cat ~/.tsh/complete*.txt)" ssh
 export PATH="$PATH:$HOME/bin" #mx-teleport-bin
 tsh status 2>&1 | grep -q EXPIRED && printf "\e[93mYou need to run tlogin\e[0m\n" #mx-teleport-bash-notify
+complete -W "$(cat ~/.tsh/complete*.txt)" ssh #mx-teleport-bash-complete
+export KUBECONFIG=~/.kube/teleport
  #mx teleport end

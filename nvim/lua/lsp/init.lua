@@ -39,10 +39,9 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>ca',  "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 local had_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if had_cmp_nvim_lsp then
-    capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+    capabilities = require("cmp_nvim_lsp").default_capabilities()
 end
 
 local had_lspconfig = pcall(require, "lspconfig")

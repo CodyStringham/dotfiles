@@ -51,6 +51,7 @@ return packer.startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons" },
         config = require "plugins.configs.bufferline",
     }
+    -- use { "xiyaowong/nvim-transparent" }
 
 
     -- Syntax
@@ -133,10 +134,6 @@ return packer.startup(function(use)
         },
         config = require "plugins.configs.gitsigns",
     }
-
-    -- Flutter
-    use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
-    use {'dart-lang/dart-vim-plugin'}
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
