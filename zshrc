@@ -1,14 +1,17 @@
-export ZSH=~/.oh-my-zsh
-plugins=(git asdf)
-DEFAULT_USER=`whoami`
-source $ZSH/oh-my-zsh.sh
-ZSH_THEME=""
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="spaceship"
 
-# Bat
-export BAT_THEME='Nord'
+if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
+  SPACESHIP_PROMPT_ASYNC=FALSE
+  SPACESHIP_PROMPT_SEPARATE_LINE=FALSE
+  SPACESHIP_CHAR_SYMBOL=""
+fi
+
+plugins=(git asdf)
+source $ZSH/oh-my-zsh.sh
 
 # Editor
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Build Path
 export PATH="$PATH:/usr/local/bin"
