@@ -1,0 +1,39 @@
+local opt = vim.opt
+
+opt.termguicolors = true
+opt.background = "dark"
+opt.signcolumn = "yes"
+opt.relativenumber = true
+opt.number = true
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.autoindent = true
+opt.cursorline = true
+opt.splitright = true
+opt.splitbelow = true
+
+
+-- fileencoding = "utf-8",
+-- backup = false,
+-- swapfile = false,
+-- hlsearch = true,
+-- incsearch = true,
+-- showmode = false,
+-- scrolloff = 5,
+-- sidescrolloff = 5,
+-- smartindent = true,
+-- hidden = true,
+-- ignorecase = true,
+-- timeoutlen = 1000,
+-- shiftround = true,
+-- smartcase = true,
+-- mouse = "a",
+-- cmdheight = 1,
+-- undodir = "/tmp/.nvimdid",
+-- undofile = true,
+-- undolevels = 1000,
+-- undoreload = 10000,
+-- pumheight = 10,
+-- laststatus = 3,
+-- updatetime = 250,
