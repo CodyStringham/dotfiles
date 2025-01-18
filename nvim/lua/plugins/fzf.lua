@@ -15,7 +15,7 @@ return {
 
     fzf_lua.setup({
       winopts = {
-        fullscreen = true
+        fullscreen = false
       },
       git = {
         icons = {
