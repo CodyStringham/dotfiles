@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 config.color_scheme = 'nightfox'
 config.font = wezterm.font_with_fallback {
   'Monaspace Krypton',
-  'Monaspace'
+  'Monaspace Neon'
 }
 
 -- Smart Splits

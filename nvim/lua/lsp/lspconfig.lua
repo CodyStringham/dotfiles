@@ -20,7 +20,7 @@ return {
       keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 
       opts.desc = "Format file"
-      keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
+      keymap.set("n", "<leader>.", vim.lsp.buf.format, opts)
     end
 
     local capabilities = cmp_nvim_lsp.default_capabilities()
