@@ -8,7 +8,6 @@ Living repo of dotfiles and configurations.
 - Create custom nightfox bat theme
 - Transfer gitconfig
 
-
 ## Dependencies
 - [fzf](https://github.com/junegunn/fzf)
 - [neovim](https://neovim.io/)

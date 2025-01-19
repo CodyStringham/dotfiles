@@ -9,7 +9,7 @@ return {
   priority = 999, -- make sure to load this before all the other start plugins
   branch = "v3.x",
   keys = {
-    { "<c-n>", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
+    { "<c-\\>", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
   },
   config = function()
     local neotree = require("neo-tree")
