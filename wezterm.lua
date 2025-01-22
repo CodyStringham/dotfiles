@@ -2,11 +2,14 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
--- Configs
-config.color_scheme = 'nightfox'
-config.font = wezterm.font_with_fallback {
-  'Monaspace Krypton',
-  'Monaspace Neon'
+
+-- Theme
+config.color_scheme = 'dawnfox'
+config.font_size = 12
+config.font = wezterm.font {
+  family = 'Monaspace Krypton',
+  weight = 600,
+  harfbuzz_features = { 'calt=1', 'liga=1', 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'ss09=1' },
 }
 
 -- Smart Splits

@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 opt.termguicolors = true
-opt.background = "dark"
+opt.background = "light"
 opt.signcolumn = "yes"
 opt.relativenumber = true
 opt.number = true
