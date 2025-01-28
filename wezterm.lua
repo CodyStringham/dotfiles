@@ -1,6 +1,7 @@
 -- Setup
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
+local act = wezterm.action
 
 
 -- Theme
@@ -32,7 +33,7 @@ local function split_nav(resize_or_move, key)
     action = wezterm.action_callback(function(win, pane)
       if is_vim(pane) then
         -- pass the keys through to vim/nvim
-        win:perform_action({
+        return win:perform_action({
           SendKey = { key = key, mods = resize_or_move == 'resize' and 'META' or 'CTRL' },
         }, pane)
       else
@@ -57,7 +58,7 @@ config.keys = {
   {
     key = "|",
     mods = "LEADER|SHIFT",
-    action = wezterm.action.SplitPane({
+    action = act.SplitPane({
       direction = "Right",
       size = { Percent = 50 }
     })
@@ -65,7 +66,7 @@ config.keys = {
   {
     key = "_",
     mods = "LEADER|SHIFT",
-    action = wezterm.action.SplitPane({
+    action = act.SplitPane({
       direction = "Down",
       size = { Percent = 50 }
     })
@@ -73,12 +74,12 @@ config.keys = {
   {
     key = "x",
     mods = "LEADER",
-    action = wezterm.action.CloseCurrentPane { confirm = true }
+    action = act.CloseCurrentPane { confirm = true }
   },
   {
     key = "z",
     mods = "LEADER",
-    action = wezterm.action.TogglePaneZoomState
+    action = act.TogglePaneZoomState
   },
 }
 
