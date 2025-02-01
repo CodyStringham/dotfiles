@@ -16,6 +16,7 @@
 - [fzf](https://github.com/junegunn/fzf)
 - [neovim](https://neovim.io/)
 - [zsh](https://ohmyz.sh/)
+- [ohmyposh](https://ohmyposh.dev/)
 - [monaspace](https://monaspace.githubnext.com/)
 - [wezterm](https://github.com/wez/wezterm)
 - [delta](https://github.com/dandavison/delta)

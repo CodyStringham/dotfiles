@@ -12,6 +12,7 @@ config.font = wezterm.font {
   weight = 600,
   harfbuzz_features = { 'calt=1', 'liga=1', 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'ss09=1' },
 }
+config.line_height = 1.2
 
 -- Smart Splits
 local function is_vim(pane)

@@ -14,8 +14,11 @@ return {
       mason_lspconfig.setup({
         ensure_installed = {
           "html",
-          "ruby_lsp",
           "lua_ls",
+          "ruby_lsp",
+          "standardrb",
+          "stimulus_ls",
+          "tailwindcss"
         },
         automatic_installation = true,
       })

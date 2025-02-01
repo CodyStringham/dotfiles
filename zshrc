@@ -1,9 +1,4 @@
 export ZSH="$HOME/.oh-my-zsh"
-SPACESHIP_DOCKER_SHOW=false
-SPACESHIP_DOCKER_COMPOSE_SHOW=false
-SPACESHIP_KUBECTL_SHOW=false
-ZSH_THEME="spaceship"
-
 plugins=(git asdf)
 source $ZSH/oh-my-zsh.sh
 
@@ -92,3 +87,8 @@ autoload -U +X compinit && compinit
 
 # autosuggestions
 . /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# ohmyposh
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh --config ~/dev/dotfiles/prompt.omp.json)"
+fi
