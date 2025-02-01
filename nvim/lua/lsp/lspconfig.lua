@@ -40,6 +40,16 @@ return {
       }
     })
 
+    lspconfig["tailwindcss"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["stimulus_ls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     lspconfig["standardrb"].setup({
       capabilities = capabilities,
       on_attach = on_attach,

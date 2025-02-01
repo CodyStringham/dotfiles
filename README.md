@@ -1,7 +1,5 @@
 # Dotfiles
 
-Living repo of dotfiles and configurations.
-
 - Dawnfox theme (so bright)
 - Monaspace font with ligatures (so ligatury)
 - Wezterm terminal (goodbye tmux)
