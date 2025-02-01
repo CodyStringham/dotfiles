@@ -14,15 +14,16 @@ Living repo of dotfiles and configurations.
 - Transfer gitconfig
 
 ## Dependencies
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
 - [neovim](https://neovim.io/)
 - [zsh](https://ohmyz.sh/)
-- [Monaspace](https://monaspace.githubnext.com/)
-- [Wezterm](https://github.com/wez/wezterm)
+- [monaspace](https://monaspace.githubnext.com/)
+- [wezterm](https://github.com/wez/wezterm)
 - [delta](https://github.com/dandavison/delta)
 - [bat](https://github.com/sharkdp/bat)
 - [lazygit](https://github.com/jesseduffield/lazygit)
-- [Nightfox](https://github.com/EdenEast/nightfox.nvim)
+- [nightfox](https://github.com/EdenEast/nightfox.nvim)
 
 ## Usage
 ```

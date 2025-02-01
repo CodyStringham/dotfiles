@@ -36,12 +36,10 @@ export PARALLEL_WORKERS=8
 # Aliases
 alias yolo='git reset HEAD --hard && git clean -fd'
 alias bx="bundle exec"
-alias dbstatus="bx rails db:migrate:status"
-alias dbmigrate="bx rails db:migrate && RAILS_ENV=test bx rails db:migrate"
-alias dbrollback="bx rails db:rollback && RAILS_ENV=test bx rails db:rollback"
 alias luamake=/Users/cody/tools/lua-language-server/3rd/luamake/luamake
 alias lsplog="tail -f ~/.local/state/nvim/lsp.log"
 alias lg="lazygit"
+alias nv="nvim"
 
 
 # Commands

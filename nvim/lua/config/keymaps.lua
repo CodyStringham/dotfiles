@@ -4,7 +4,7 @@ local keymap = vim.keymap
 local smart = require("smart-splits")
 
 -- Search
-keymap.set("n", "<leader>h", ":nohl<cr>", { desc = "clear highlight", silent = true })
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Buffers
 keymap.set("n", "<tab>", ":bnext<cr>", { desc = "next buffer", silent = true })
