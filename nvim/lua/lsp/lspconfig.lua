@@ -55,14 +55,18 @@ return {
       on_attach = on_attach,
     })
 
-    lspconfig["prettier"].setup({
+    lspconfig["html"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["html"].setup({
+    lspconfig["volar"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      on_attach = function(client, _)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+      end,
+      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
     })
 
     lspconfig["lua_ls"].setup({

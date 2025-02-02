@@ -18,7 +18,8 @@ return {
           "ruby_lsp",
           "standardrb",
           "stimulus_ls",
-          "tailwindcss"
+          "tailwindcss",
+          "volar",
         },
         automatic_installation = true,
       })

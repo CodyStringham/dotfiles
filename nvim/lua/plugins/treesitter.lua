@@ -23,7 +23,8 @@ return {
         "vim",
         "dockerfile",
         "gitignore",
-        "ruby"
+        "ruby",
+        "vue"
       }
     })
   end
