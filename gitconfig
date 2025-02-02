@@ -1,13 +1,13 @@
 [push]
 	autoSetupRemote = true
 [user]
-	name = 
-	email =
+	name = FILL_IN
+	email = FILL_IN
 [core]
   pager = delta
 	excludesFile = ~/.gitignore
 [pull]
-	rebase = false
+	rebase = true
 [init]
 	defaultBranch = master
 [interactive]
@@ -15,6 +15,8 @@
 [merge]
   conflictstyle = zdiff3
 [delta]
-	side-by-side = true
-	syntax-theme = dawnfox
-	true-color = auto
+  side-by-side = true
+  syntax-theme = dawnfox
+  true-color = auto
+  plus-style = "syntax bold #d0e8d6";
+  minus-style = "syntax bold #ecdddb"
