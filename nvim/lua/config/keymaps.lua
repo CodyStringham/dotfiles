@@ -4,7 +4,7 @@ local keymap = vim.keymap
 local smart = require("smart-splits")
 
 -- Search
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Clear highlight" })
 
 -- Buffers
 keymap.set("n", "<tab>", ":bnext<cr>", { desc = "next buffer", silent = true })
@@ -21,3 +21,23 @@ keymap.set('n', '<c-l>', smart.move_cursor_right)
 keymap.set('v', '<c-y>', '"+y') -- copy selection
 keymap.set('n', '<c-y>', '^"+y$') -- copy line, exclude newline/indent
 
+
+-- Send Text To Wezterm Pane (wip)
+
+-- query stored pane id
+-- if stored pane is is bad
+-- -- spawn pane
+-- -- store pane id
+
+-- send text to pane
+-- local spawn_pane = function()
+--   local spawn_result = vim.system({'wezterm', 'cli', 'split-pane', '--right'}):wait()
+--   vim.g.wezterm_test_pane_id = spawn_result.stdout
+-- end
+--
+-- local send_text = function()
+--   vim.system({"echo", "pwd", "|", "wezterm", "cli", "send-text", "--no-paste", "--pane-id", "38" })
+-- end
+--
+-- keymap.set('n', '<leader>wp', spawn_pane, { desc = "Spawn new pane in wezterm"})
+-- keymap.set('n', '<leader>wt', send_text, { desc = "Run tests in spawned pane"})

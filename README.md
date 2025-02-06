@@ -1,9 +1,9 @@
 # Dotfiles
 
-- Dawnfox theme (so bright)
-- Monaspace font with ligatures (so ligatury)
-- Wezterm terminal (goodbye tmux)
-- Neovim editor (hell yeah)
+- Tokyonight color scheme
+- Monaspace font
+- Wezterm terminal
+- Neovim editor
 
 ## Manual Steps
 - Install dependencies
@@ -35,21 +35,10 @@ ln -s ~/dev/dotfiles/wezterm.lua ~/.wezterm.lua
 now do the stuff below
 ```
 
-## Delta + Bat + Lazygit
-This setup is annoying but worth it. You need a combination of the following:
-- Add custom bat theme
+## Delta + Lazygit
+You need a combination of the following:
 - Add delta configuration to gitconfig
 - Configure lazygit to use delta
-
-### Add custom Bat theme
-```
-cd "$(bat --config-dir)/themes"
-touch theme.tmTheme
-bat cache --build
-# Should now be available
-bat --list-themes
-# Now you can use it in delta config
-```
 
 ### Add delta configuration to gitconfig
 See gitconfig
@@ -63,11 +52,11 @@ Setup to use delta
 ```
 gui:
   theme:
-    lightTheme: true
+    lightTheme: false
     selectedLineBgColor:
       - grey
 git:
   paging:
     colorArg: always
-    pager: delta --light --paging=never
+    pager: delta --paging=never
 ```

@@ -6,8 +6,8 @@
       "newline": true,
       "segments": [
         {
-          "background": "blue",
-          "foreground": "#ffffff",
+          "background": "#76abff",
+          "foreground": "#3a4364",
           "leading_diamond": "\u256d\u2500\ue0b2",
           "properties": {
             "alpine": "\uf300",
@@ -31,8 +31,8 @@
           "type": "os"
         },
         {
-          "background": "cyan",
-          "foreground": "#ffffff",
+          "background": "#3a4364",
+          "foreground": "#76abff",
           "leading_diamond": "\ue0b2",
           "trailing_diamond": "\ue0b0",
           "properties": {
@@ -43,15 +43,15 @@
           "type": "path"
         },
         {
-          "background": "#575279",
-          "foreground": "#ffffff",
+          "background": "#c7fb6d",
+          "foreground": "#444a73",
           "style": "diamond",
           "trailing_diamond": "\ue0b0",
           "background_templates": [
-            "{{ if or (.Working.Changed) (.Staging.Changed) }}#eea846{{ end }}",
-            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#b4637a{{ end }}",
-            "{{ if gt .Ahead 0 }}#b4637a{{ end }}",
-            "{{ if gt .Behind 0 }}#b4637a{{ end }}"
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#ffc777{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff8d94{{ end }}",
+            "{{ if gt .Ahead 0 }}#c099ff{{ end }}",
+            "{{ if gt .Behind 0 }}#c099ff{{ end }}"
           ],
           "properties": {
             "branch_max_length": 25,

@@ -8,7 +8,7 @@ local opt = vim.opt
 opt.termguicolors = true
 
 -- Adjust color groups for bg type
-opt.background = "light"
+opt.background = "dark"
 
 -- Set number of spaces for <Tab>
 opt.tabstop = 2
