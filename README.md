@@ -53,8 +53,6 @@ Setup to use delta
 gui:
   theme:
     lightTheme: false
-    selectedLineBgColor:
-      - grey
 git:
   paging:
     colorArg: always

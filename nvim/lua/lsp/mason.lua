@@ -17,7 +17,6 @@ return {
           "lua_ls",
           "ruby_lsp",
           "standardrb",
-          "stimulus_ls",
           "tailwindcss",
           "volar",
         },

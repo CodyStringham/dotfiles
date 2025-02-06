@@ -75,6 +75,7 @@ return {
     lspconfig["ruby_lsp"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "ruby", "eruby" },
       cmd = { "asdf", "exec", "ruby-lsp" },
       init_options = {
         formatters = { 'standard' },
@@ -85,16 +86,13 @@ return {
     lspconfig["tailwindcss"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-    })
-
-    lspconfig["stimulus_ls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+      filetypes = { "html", "haml", "eruby" }
     })
 
     lspconfig["standardrb"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "ruby", "eruby" }
     })
 
     lspconfig["html"].setup({
@@ -116,6 +114,7 @@ return {
       on_attach = on_attach,
       format = { eanble = true },
       indent = { size = 2 },
+      filetypes = { "lua" },
       settings = {
         Lua = {
           diagnostics = { globals = { 'vim' } }
