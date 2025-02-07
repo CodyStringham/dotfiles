@@ -14,6 +14,8 @@
 ## Dependencies
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
+- [eza](https://github.com/eza-community/eza)
+- [zoxide](https://github.com/ajeetdsouza/zoxide)
 - [neovim](https://neovim.io/)
 - [zsh](https://ohmyz.sh/)
 - [ohmyposh](https://ohmyposh.dev/)

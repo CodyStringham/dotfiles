@@ -70,9 +70,15 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#575279",
+          "foreground": "#76abff",
           "style": "plain",
-          "template": "\u2570\u2500>",
+          "template": "\u2570\u2500",
+          "type": "text"
+        },
+        {
+          "foreground": "#caabff",
+          "style": "plain",
+          "template": "\udb80\udd42",
           "type": "text"
         }
       ],
