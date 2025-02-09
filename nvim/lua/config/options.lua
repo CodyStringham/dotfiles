@@ -38,6 +38,9 @@ vim.g.have_nerd_font = true
 -- Make relative line numbers default
 opt.relativenumber = true
 
+-- Set current line number
+opt.number = true
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 opt.mouse = 'a'
 

@@ -12,9 +12,12 @@ return {
       end,
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
-    { 'nvim-tree/nvim-web-devicons',                  enabled = false },
+    { 'nvim-tree/nvim-web-devicons',            enabled = false },
   },
   config = function()
+    local builtin = require 'telescope.builtin'
+    local actions = require 'telescope.actions'
+
     require('telescope').setup {
       extensions = {
         ['ui-select'] = {
@@ -28,6 +31,16 @@ return {
           "*.csv",
           "*.yml",
           "vendor/*"
+        },
+        vimgrep_arguments = {
+          'rg',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case',
+          '--fixed-strings',
         }
       },
       pickers = {
@@ -35,7 +48,11 @@ return {
           theme = "ivy"
         },
         buffers = {
-          theme = "ivy"
+          theme = "ivy",
+          mappings = {
+            i = { ["<c-x>"] = actions.delete_buffer, },
+            n = { ["<c-x>"] = actions.delete_buffer, },
+          }
         }
       }
     }
@@ -44,7 +61,6 @@ return {
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
 
-    local builtin = require 'telescope.builtin'
     local find_files_with = function(opts)
       opts = opts or {}
       return function()
@@ -76,9 +92,9 @@ return {
     vim.keymap.set('n', '<Leader>frv', find_files_with({ cwd = "./app/views" }), { desc = 'Rails Views' })
 
     -- Find Words
-    vim.keymap.set('n', '<C-f>', builtin.grep_string, { desc = "Find current word under cursor"})
+    vim.keymap.set('n', '<C-f>', builtin.grep_string, { desc = "Find current word under cursor" })
     vim.keymap.set('v', '<C-f>', function()
-      return builtin.grep_string { default_text = table.concat(get_selection())}
+      return builtin.grep_string { default_text = table.concat(get_selection()) }
     end, { desc = 'Find word' })
   end
 }

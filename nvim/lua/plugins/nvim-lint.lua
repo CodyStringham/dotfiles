@@ -27,7 +27,7 @@ return {
       group = lint_augroup,
       callback = function()
         lint.try_lint()
-        lint.try_lint("cspell")
+        -- lint.try_lint("cspell")
       end
     })
   end,
