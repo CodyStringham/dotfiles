@@ -5,12 +5,6 @@
 - Wezterm terminal
 - Neovim editor
 
-## Manual Steps
-- Install dependencies
-- Download monaspace font
-- Create custom nightfox bat theme
-- Transfer gitconfig
-
 ## Dependencies
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
@@ -22,9 +16,7 @@
 - [monaspace](https://monaspace.githubnext.com/)
 - [wezterm](https://github.com/wez/wezterm)
 - [delta](https://github.com/dandavison/delta)
-- [bat](https://github.com/sharkdp/bat)
 - [lazygit](https://github.com/jesseduffield/lazygit)
-- [nightfox](https://github.com/EdenEast/nightfox.nvim)
 
 ## Usage
 ```
