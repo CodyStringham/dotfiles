@@ -21,7 +21,7 @@ export PATH="${PATH}:${GOPATH}/bin"
 export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 #FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 export FZF_DEFAULT_COMMAND='rg -g ""'
 
 #FC TESTS
