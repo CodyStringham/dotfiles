@@ -78,8 +78,8 @@ return {
       filetypes = { "ruby", "eruby" },
       cmd = { "asdf", "exec", "ruby-lsp" },
       init_options = {
-        formatters = { 'standard' },
-        linters = { 'standard' }
+        formatters = { 'rubocop' },
+        linters = { 'rubocop' }
       }
     })
 
@@ -89,11 +89,11 @@ return {
       filetypes = { "html", "haml", "eruby" }
     })
 
-    lspconfig["standardrb"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      filetypes = { "ruby", "eruby" }
-    })
+    -- lspconfig["standardrb"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    --   filetypes = { "ruby", "eruby" }
+    -- })
 
     lspconfig["html"].setup({
       capabilities = capabilities,
