@@ -59,3 +59,5 @@ autoload -Uz compinit && compinit
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config ~/dev/dotfiles/prompt.omp.json)"
 fi
+export DISABLE_SPRING=true
+export LEFTHOOK_BIN=bin/lefthook
