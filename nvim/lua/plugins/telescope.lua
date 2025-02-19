@@ -12,13 +12,21 @@ return {
       end,
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
-    { 'nvim-tree/nvim-web-devicons',            enabled = false },
+    {
+      'nvim-tree/nvim-web-devicons',
+      enabled = false
+    },
+    {
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      version = "^1.0.0",
+    }
   },
   config = function()
+    local telescope = require 'telescope'
     local builtin = require 'telescope.builtin'
     local actions = require 'telescope.actions'
 
-    require('telescope').setup {
+    telescope.setup {
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
@@ -58,8 +66,9 @@ return {
     }
 
     -- Enable Telescope extensions if they are installed
-    pcall(require('telescope').load_extension, 'fzf')
-    pcall(require('telescope').load_extension, 'ui-select')
+    pcall(telescope.load_extension, 'fzf')
+    pcall(telescope.load_extension, 'ui-select')
+    pcall(telescope.load_extension, 'live_grep_args')
 
     local find_files_with = function(opts)
       opts = opts or {}
@@ -83,6 +92,7 @@ return {
     vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
     vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
+    vim.keymap.set('n', '<leader>fa', telescope.extensions.live_grep_args.live_grep_args, { desc = '[F]ind by grep with [A]rgs' })
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
     vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
 
