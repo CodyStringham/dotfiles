@@ -9,7 +9,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Clear highlight" }
 -- Buffers
 keymap.set("n", "<tab>", ":bnext<cr>", { desc = "next buffer", silent = true })
 keymap.set("n", "<s-tab>", ":bprevious<cr>", { desc = "previous buffer", silent = true })
-keymap.set("n", "<leader>x", ":bd<cr>", { desc = "remove buffer", silent = true })
+keymap.set("n", "<leader>x", ":bp|bd #<cr>", { desc = "remove buffer", silent = true })
 
 -- Smart Splits
 keymap.set('n', '<c-h>', smart.move_cursor_left)

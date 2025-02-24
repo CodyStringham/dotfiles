@@ -2,7 +2,7 @@ return {
   'mfussenegger/nvim-lint',
   ft = {
     "ruby",
-    "erb",
+    "eruby",
     'javascript',
     'javascriptreact',
     "vue",
@@ -14,7 +14,7 @@ return {
       javascript = { 'eslint_d' },
       javascriptreact = { 'eslint_d' },
       vue = { 'eslint_d' },
-      erb = { 'erb-lint' },
+      eruby = { 'erb_lint' },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
