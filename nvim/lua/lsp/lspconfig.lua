@@ -89,6 +89,12 @@ return {
       filetypes = { "html", "haml", "eruby" }
     })
 
+    lspconfig["biome"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "javascript" }
+    })
+
     -- lspconfig["standardrb"].setup({
     --   capabilities = capabilities,
     --   on_attach = on_attach,
