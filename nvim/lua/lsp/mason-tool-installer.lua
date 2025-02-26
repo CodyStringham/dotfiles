@@ -5,6 +5,7 @@ return {
 
     mason_tools.setup({
       ensure_installed = {
+        'biome',
         'eslint_d',
         'prettierd',
         'erb-lint',
