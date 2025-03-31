@@ -10,6 +10,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Clear highlight" }
 keymap.set("n", "<tab>", ":bnext<cr>", { desc = "next buffer", silent = true })
 keymap.set("n", "<s-tab>", ":bprevious<cr>", { desc = "previous buffer", silent = true })
 keymap.set("n", "<leader>x", ":bp|bd #<cr>", { desc = "remove buffer", silent = true })
+keymap.set("n", "<leader>erb", ":silent ! bundle exec erb_lint -a %<cr>", { desc = "format ERB", silent = true })
+keymap.set("n", "<leader>scss", ":silent ! yarn stylelint --fix %<cr>", { desc = "format scss", silent = true })
 
 -- Smart Splits
 keymap.set('n', '<c-h>', smart.move_cursor_left)

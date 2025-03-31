@@ -3,6 +3,7 @@ return {
   ft = {
     "ruby",
     "eruby",
+    "scss",
     'javascript',
     'javascriptreact',
     "vue",
@@ -15,6 +16,7 @@ return {
       javascriptreact = { 'eslint_d' },
       vue = { 'eslint_d' },
       eruby = { 'erb_lint' },
+      scss = { 'stylelint' },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
