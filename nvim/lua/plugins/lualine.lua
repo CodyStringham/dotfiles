@@ -4,7 +4,14 @@ return {
   config = function()
     local lualine = require('lualine')
     lualine.setup({
-      theme = "auto",
+      options = {
+        theme = "auto",
+      },
+      sections = {
+        lualine_c = {{
+          'filename', path=1
+        }}
+      }
     })
   end
 }
