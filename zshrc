@@ -12,7 +12,6 @@ export PATH="$PATH:/bin"
 export PATH="$PATH:/usr/local/sbin"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
-
 # GOPATH
 export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH}/bin"
@@ -36,7 +35,6 @@ alias nv="nvim"
 alias ls="eza --color=always --long --no-filesize --icons=auto --no-time --no-user --no-permissions"
 alias lsa="eza --color=always --long --icons=auto"
 alias headful="RSPEC_CAPYBARA_DRIVER=selenium_chrome rspec"
-
 
 # Commands
 GCO() { git checkout "$(git branch $1 | fzf | tr -d '[:space:]')" }

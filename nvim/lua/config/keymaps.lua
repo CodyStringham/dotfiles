@@ -23,6 +23,9 @@ keymap.set('n', '<c-l>', smart.move_cursor_right)
 keymap.set('v', '<c-y>', '"+y') -- copy selection
 keymap.set('n', '<c-y>', '^"+y$') -- copy line, exclude newline/indent
 
+-- Copilot
+keymap.set("n", "<leader>aio", ":CopilotChatOpen<cr>", { desc = "Open Copilot Chat" })
+keymap.set("n", "<leader>aic", ":CopilotChatClose<cr>", { desc = "Close Copilot Chat" })
 
 -- Send Text To Wezterm Pane (wip)
 
