@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 local smart = require("smart-splits")
+local nw = require("config.nvim-wez")
 
 -- Search
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Clear highlight" })
@@ -20,31 +21,22 @@ keymap.set('n', '<c-k>', smart.move_cursor_up)
 keymap.set('n', '<c-l>', smart.move_cursor_right)
 
 -- Copy to system clipboard
-keymap.set('v', '<c-y>', '"+y') -- copy selection
+keymap.set('v', '<c-y>', '"+y')   -- copy selection
 keymap.set('n', '<c-y>', '^"+y$') -- copy line, exclude newline/indent
 
+-- Wezterm
+keymap.set("n", "<leader>wp", nw.open_pane_right, { desc = "Open new [w]ezterm [p]ane" })
+keymap.set("n", "<leader>wt", nw.run_rspec_on_current_file, { desc = "Use [w]ezterm pane to run [t]ests" })
+
 -- Copilot
-keymap.set("n", "<leader>aio", ":CopilotChatOpen<cr>", { desc = "Copilot chat open" })
-keymap.set("n", "<leader>aic", ":CopilotChatClose<cr>", { desc = "Copilot chat close" })
-keymap.set("n", "<leader>air", ":CopilotChatReset<cr>", { desc = "Copilot chat reset" })
-keymap.set('v', '<c-e>',       ":CopilotChatExplain<cr>", { desc = "Copilot explain selection", noremap = true})
-
--- Send Text To Wezterm Pane (wip)
-
--- query stored pane id
--- if stored pane is is bad
--- -- spawn pane
--- -- store pane id
-
--- send text to pane
--- local spawn_pane = function()
---   local spawn_result = vim.system({'wezterm', 'cli', 'split-pane', '--right'}):wait()
---   vim.g.wezterm_test_pane_id = spawn_result.stdout
--- end
---
--- local send_text = function()
---   vim.system({"echo", "pwd", "|", "wezterm", "cli", "send-text", "--no-paste", "--pane-id", "38" })
--- end
---
--- keymap.set('n', '<leader>wp', spawn_pane, { desc = "Spawn new pane in wezterm"})
--- keymap.set('n', '<leader>wt', send_text, { desc = "Run tests in spawned pane"})
+keymap.set("n", "<c-c>", ":CopilotChatToggle<cr>", { desc = "[c]opilot chat toggle" })
+keymap.set("n", "<leader>cx", ":CopilotChatReset<cr>", { desc = "[c]opilot chat reset [x]" })
+keymap.set('v', '<c-e>', ":CopilotChatExplain<cr>", { desc = "[c]opilot explain selection", noremap = true })
+-- NOTE: we have access to the following
+-- Explain
+-- Review
+-- Fix
+-- Optimise
+-- Docs
+-- Tests
+-- Commit
