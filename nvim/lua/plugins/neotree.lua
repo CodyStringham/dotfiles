@@ -37,6 +37,11 @@ return {
           enabled = true,
           leave_dirs_open = false,
         },
+        window = {
+          mappings = {
+            ["/"] = "noop" -- Disable fuzzy search
+          }
+        }
       },
       event_handlers = {
         {
