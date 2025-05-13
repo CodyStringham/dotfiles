@@ -3,7 +3,6 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 local act = wezterm.action
 
-
 -- Theme
 config.color_scheme = 'Tokyo Night Storm'
 config.font_size = 12
@@ -106,7 +105,6 @@ config.skip_close_confirmation_for_processes_named = {
   'pwsh.exe',
   'powershell.exe',
 }
-
 
 -- Return
 return config

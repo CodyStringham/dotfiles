@@ -26,7 +26,13 @@ keymap.set('n', '<c-y>', '^"+y$') -- copy line, exclude newline/indent
 
 -- Wezterm
 keymap.set("n", "<leader>wp", nw.open_pane_right, { desc = "Open new [w]ezterm [p]ane" })
-keymap.set("n", "<leader>wt", nw.run_rspec_on_current_file, { desc = "Use [w]ezterm pane to run [t]ests" })
+keymap.set("n", "<leader>ww", nw.rerun_last_cmd, { desc = "[w]ezterm [w] resend last command" })
+keymap.set("n", "<leader>wr", function()
+  nw.send_text_to_pane("bin/rspec " .. vim.fn.expand("%"))
+end, { desc = "Send [w]ezterm cmd [r]spec for current file" })
+keymap.set("n", "<leader>wt", function()
+  nw.send_text_to_pane("bx rake test TEST=" .. vim.fn.expand("%"))
+end, { desc = "Send [w]ezterm cmd mini [t]est for current file" })
 
 -- Copilot
 keymap.set("n", "<c-c>", ":CopilotChatToggle<cr>", { desc = "[c]opilot chat toggle" })
