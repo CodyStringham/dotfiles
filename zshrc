@@ -26,6 +26,9 @@ export FZF_DEFAULT_COMMAND='rg -g ""'
 #FC TESTS
 export PARALLEL_WORKERS=8
 
+#WB TESTS
+export COVERAGE=true
+
 # Aliases
 alias yolo='git reset HEAD --hard && git clean -fd'
 alias bx="bundle exec"

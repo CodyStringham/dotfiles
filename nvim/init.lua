@@ -2,7 +2,11 @@
 require("config.options")
 
 -- Load plugins
-require("config.lazy")
+require("core.lazy")
+require("core.lsp")
+
+-- Set autocmds
+require('config.autocmds')
 
 -- Set keymaps
 require("config.keymaps")

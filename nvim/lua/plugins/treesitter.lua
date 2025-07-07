@@ -18,6 +18,7 @@ return {
         "html",
         "css",
         "scss",
+        "embedded_template",
         "markdown",
         "bash",
         "lua",
