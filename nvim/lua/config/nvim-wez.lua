@@ -1,5 +1,4 @@
 local M = {}
-local wezterm_pane_id = nil
 local last_cmd = nil
 
 -- WARN: WIP! Pane must be opened from nvim for each session
@@ -9,9 +8,11 @@ local last_cmd = nil
 -- set pane_id to inactive pane if tab has two panes
 -- set open new pane if we don't have pane_id and tab only has one pane
 
-function M.open_pane_right()
-  -- Open a new pane to the right and capture its id
-  local cmd = "wezterm cli split-pane --right --percent 50 -- zsh -i"
+
+function M.open_pane(direction)
+  -- Open a new pane and capture its id
+  local cmd_string = "wezterm cli split-pane --%s --percent 50 -- zsh -i"
+  local cmd = string.format(cmd_string, direction)
   local handle = io.popen(cmd)
   local pane_id = ""
 
@@ -21,19 +22,51 @@ function M.open_pane_right()
   end
 
   if pane_id ~= "" then
-    wezterm_pane_id = pane_id
+    return pane_id
   else
-    wezterm_pane_id = nil
+    return nil
+  end
+end
+
+function M.close_pane(direction)
+  -- Close to the direction of current pane
+  local pane_id = M.get_pane_id(direction)
+  local cmd_string = "wezterm cli kill-pane --pane-id %s"
+  local cmd = string.format(cmd_string, pane_id)
+
+  os.execute(cmd)
+end
+
+function M.get_pane_id(direction)
+  -- Get pane id to the direction of current pane
+  local cmd_string = "wezterm cli get-pane-direction %s"
+  local cmd = string.format(cmd_string, direction)
+  local handle = io.popen(cmd)
+  local pane_id = ""
+
+  if handle then
+    pane_id = vim.trim(handle:read("*a"))
+    handle:close()
+  end
+
+  if pane_id ~= "" then
+    return pane_id
+  else
+    return nil
   end
 end
 
 function M.send_text_to_pane(txt)
   -- send text to split pane
-  local pane_id = wezterm_pane_id
+  local pane_id = M.get_pane_id("right");
 
   if not pane_id then
-    print("No wezterm pane id stored.")
-    return
+    pane_id = M.open_pane("right")
+  end
+
+  if not pane_id then
+    print("Pane could not be targetted.")
+    return;
   end
 
   local cmd_string = 'echo "%s" | wezterm cli send-text --no-paste --pane-id %s'
