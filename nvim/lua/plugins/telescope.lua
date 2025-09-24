@@ -39,7 +39,7 @@ return {
           "*.csv",
           "*.yml",
           "vendor/*",
-          "app/frontend/__tests__/fixtures/*"
+          "app/frontend/__fixtures__/*"
         },
         vimgrep_arguments = {
           'rg',

@@ -13,6 +13,7 @@ keymap.set("n", "<s-tab>", ":bprevious<cr>", { desc = "previous buffer", silent 
 keymap.set("n", "<leader>x", ":bp|bd #<cr>", { desc = "remove buffer", silent = true })
 keymap.set("n", "<leader>erb", ":silent ! bundle exec erb_lint -a %<cr>", { desc = "format ERB", silent = true })
 keymap.set("n", "<leader>scss", ":silent ! yarn stylelint --fix %<cr>", { desc = "format scss", silent = true })
+keymap.set("n", "<leader>yf", ":let @+=expand('%:p')<cr>", { desc = "[y]ank current [f]ile path", silent = true })
 
 -- Smart Splits
 keymap.set('n', '<c-h>', smart.move_cursor_left)
@@ -33,6 +34,9 @@ end, { desc = "Send [w]ezterm cmd [r]spec for current file" })
 keymap.set("n", "<leader>wt", function()
   nw.send_text_to_pane("bx rake test TEST=" .. vim.fn.expand("%"))
 end, { desc = "Send [w]ezterm cmd mini [t]est for current file" })
+keymap.set("n", "<leader>wy", function()
+  nw.send_text_to_pane("yarn test " .. vim.fn.expand("%"))
+end, { desc = "Send [w]ezterm cmd [y]arn test for current file" })
 
 -- Copilot
 keymap.set("n", "<c-c>", ":CopilotChatToggle<cr>", { desc = "[c]opilot chat toggle" })
