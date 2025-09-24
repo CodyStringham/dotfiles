@@ -4,12 +4,24 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 -- Theme
-config.color_scheme = 'Tokyo Night Storm'
+config.color_scheme = 'Tokyo Night Moon'
 config.font_size = 12
 config.font = wezterm.font {
   family = 'Monaspace Krypton',
   weight = "Bold",
   harfbuzz_features = { 'calt=1', 'liga=1', 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'ss09=1' },
+}
+config.window_background_gradient = {
+  colors = { "#1e2030", "#222436", "#1e2030" },
+  orientation = { Linear = { angle = -45.0 } },
+}
+config.background = {
+  {
+    source = {
+      File = "/Users/cs_wrapbook/dev/dotfiles/wave.jpg"
+    },
+    opacity = 0.1
+  }
 }
 
 config.line_height = 1.2
