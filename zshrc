@@ -34,18 +34,10 @@ alias lg="lazygit"
 alias nv="nvim"
 alias ls="eza --color=always --long --no-filesize --icons=auto --no-time --no-user --no-permissions"
 alias lsa="eza --color=always --long --icons=auto"
-<<<<<<< Updated upstream
-alias headful="RSPEC_CAPYBARA_DRIVER=selenium_chrome rspec"
-||||||| Stash base
-alias headful="RSPEC_CAPYBARA_DRIVER=selenium_chrome rspec"
-alias pullmain="git pull --rebase && bundle && yarn install && bin/rails db:migrate:with_data && yolo"
-alias mind="overmind start -F ~/overmind.tmux.conf"
-=======
 alias headful="RSPEC_CAPYBARA_DRIVER=selenium_chrome"
 alias pullmain="git pull --rebase && bundle && yarn install && bin/rails db:migrate:with_data && yolo"
 alias mind="overmind start -F ~/overmind.tmux.conf"
 alias jsreset="bin/rails assets:clobber && rm -rf node_modules && yarn install"
->>>>>>> Stashed changes
 
 # Commands
 GCO() { git checkout "$(git branch $1 | fzf | tr -d '[:space:]')" }

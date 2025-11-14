@@ -93,6 +93,11 @@ config.keys = {
     mods = "LEADER",
     action = act.TogglePaneZoomState
   },
+  {
+    key = "r",
+    mods = "CMD",
+    action = wezterm.action.DisableDefaultAssignment,
+  },
 }
 
 config.skip_close_confirmation_for_processes_named = {

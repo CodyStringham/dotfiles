@@ -51,6 +51,8 @@ keymap.set("n", "<leader>wy", function()
   nw.send_text_to_pane("yarn test " .. vim.fn.expand("%"))
 end, { desc = "Send [w]ezterm cmd [y]arn test for current file" })
 
+-- Helpers
+keymap.set('n', '<leader>cl', 'o console.log("")<esc>hi') -- js log
 
 -- Copilot
 keymap.set("n", "<c-c>", ":CopilotChatToggle<cr>", { desc = "[c]opilot chat toggle" })

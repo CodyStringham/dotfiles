@@ -38,15 +38,8 @@ return {
           "cmaps/",
           "*.csv",
           "*.yml",
-<<<<<<< Updated upstream
-          "vendor/*"
-||||||| Stash base
-          "vendor/*",
-          "app/frontend/__tests__/fixtures/*"
-=======
-          "vendor/*",
+          "app/vendor/*",
           "app/frontend/__fixtures__/*"
->>>>>>> Stashed changes
         },
         vimgrep_arguments = {
           'rg',
