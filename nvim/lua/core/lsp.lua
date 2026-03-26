@@ -1,7 +1,8 @@
 vim.lsp.enable({
   "lua_ls",
   "ruby_lsp",
-  "biome"
+  "biome",
+  "ts_ls"
 })
 
 vim.diagnostic.config({

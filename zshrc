@@ -1,4 +1,4 @@
-export ZSH="$HOME/.oh-my-zsh"
+ ZSH="$HOME/.oh-my-zsh"
 plugins=(git asdf)
 source $ZSH/oh-my-zsh.sh
 
@@ -10,6 +10,7 @@ export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/usr/bin"
 export PATH="$PATH:/bin"
 export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # GOPATH
@@ -38,8 +39,9 @@ alias nv="nvim"
 alias ls="eza --color=always --long --no-filesize --icons=auto --no-time --no-user --no-permissions"
 alias lsa="eza --color=always --long --icons=auto"
 alias headful="RSPEC_CAPYBARA_DRIVER=selenium_chrome"
-alias pullmain="git pull --rebase && bundle && yarn install && bin/rails db:migrate:with_data && yolo"
-alias mind="overmind start -F ~/overmind.tmux.conf"
+alias pullmain="git pull --rebase && bundle && yarn install && bin/rails db:migrate && yolo"
+alias mind="overmind start -F ~/overmind.tmux.conf -l web,vite,rails"
+alias mindful="overmind start -F ~/overmind.tmux.conf"
 alias jsreset="bin/rails assets:clobber && rm -rf node_modules && yarn install"
 
 # Commands

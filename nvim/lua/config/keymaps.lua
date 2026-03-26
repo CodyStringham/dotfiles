@@ -14,6 +14,19 @@ keymap.set("n", "<leader>x", ":bp|bd #<cr>", { desc = "remove buffer", silent = 
 keymap.set("n", "<leader>erb", ":silent ! bundle exec erb_lint -a %<cr>", { desc = "format ERB", silent = true })
 keymap.set("n", "<leader>scss", ":silent ! yarn stylelint --fix %<cr>", { desc = "format scss", silent = true })
 keymap.set("n", "<leader>yf", ":let @+=expand('%:p')<cr>", { desc = "[y]ank current [f]ile path", silent = true })
+keymap.set("n", "<leader>yg", function()
+  local file_path = vim.fn.system("git ls-files --full-name " .. vim.fn.expand("%")):gsub("\n", "")
+  local url = "https://github.com/wrapbook/app/blob/main/" .. file_path
+  vim.fn.setreg("+", url)
+  print("Yanked: " .. url)
+end, { desc = "[y]ank [g]ithub file URL (main)", silent = true })
+keymap.set("n", "<leader>yG", function()
+  local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("\n", "")
+  local file_path = vim.fn.system("git ls-files --full-name " .. vim.fn.expand("%")):gsub("\n", "")
+  local url = "https://github.com/wrapbook/app/blob/" .. branch .. "/" .. file_path
+  vim.fn.setreg("+", url)
+  print("Yanked: " .. url)
+end, { desc = "[y]ank [G]ithub file URL (current branch)", silent = true })
 
 -- Smart Splits
 keymap.set('n', '<c-h>', smart.move_cursor_left)
@@ -38,15 +51,3 @@ keymap.set("n", "<leader>wy", function()
   nw.send_text_to_pane("yarn test " .. vim.fn.expand("%"))
 end, { desc = "Send [w]ezterm cmd [y]arn test for current file" })
 
--- Copilot
-keymap.set("n", "<c-c>", ":CopilotChatToggle<cr>", { desc = "[c]opilot chat toggle" })
-keymap.set("n", "<leader>cx", ":CopilotChatReset<cr>", { desc = "[c]opilot chat reset [x]" })
-keymap.set('v', '<c-e>', ":CopilotChatExplain<cr>", { desc = "[c]opilot explain selection", noremap = true })
--- NOTE: we have access to the following
--- Explain
--- Review
--- Fix
--- Optimise
--- Docs
--- Tests
--- Commit

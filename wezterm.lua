@@ -6,11 +6,29 @@ local act = wezterm.action
 -- Theme
 config.color_scheme = 'Tokyo Night Moon'
 config.font_size = 12
-config.font = wezterm.font {
-  family = 'Monaspace Krypton',
-  weight = "Bold",
-  harfbuzz_features = { 'calt=1', 'liga=1', 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'ss09=1' },
+local harfbuzz_features = { 'calt=1', 'liga=1', 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'ss09=1' }
+config.font = wezterm.font('Monaspace Krypton', { weight = 'Medium', harfbuzz_features = harfbuzz_features })
+config.font_rules = {
+  {
+    intensity = 'Bold',
+    font = wezterm.font {
+      family = 'Monaspace Krypton',
+      weight = 'ExtraBold',
+      harfbuzz_features = harfbuzz_features,
+    },
+  },
+  {
+    italic = true,
+    font = wezterm.font {
+      family = 'Monaspace Radon',
+      weight = 'ExtraBold',
+      style = 'Italic',
+      harfbuzz_features = harfbuzz_features,
+    },
+  },
+  -- {
 }
+
 config.window_background_gradient = {
   colors = { "#1e2030", "#222436", "#1e2030" },
   orientation = { Linear = { angle = -45.0 } },
