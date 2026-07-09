@@ -39,8 +39,14 @@
             "style": "folder"
           },
           "style": "diamond",
-          "template": " {{ .Path }} ",
-          "type": "path"
+          "template": " {{ if contains \"/.claude/worktrees/\" .PWD }}\uf1bb {{ end }}{{ .Path }} ",
+          "type": "path",
+          "background_templates": [
+            "{{ if contains \"/.claude/worktrees/\" .PWD }}#86e1fc{{ end }}"
+          ],
+          "foreground_templates": [
+            "{{ if contains \"/.claude/worktrees/\" .PWD }}#3a4364{{ end }}"
+          ]
         },
         {
           "background": "#c7fb6d",
@@ -88,4 +94,3 @@
   "final_space": true,
   "version": 3
 }
-

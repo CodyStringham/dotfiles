@@ -38,7 +38,7 @@ return {
           "cmaps/",
           "*.csv",
           "*.yml",
-          "vendor/*",
+          -- "app/vendor/*",
           "app/frontend/__fixtures__/*"
         },
         vimgrep_arguments = {

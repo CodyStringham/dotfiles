@@ -6,15 +6,14 @@ local act = wezterm.action
 -- Theme
 config.color_scheme = 'Tokyo Night Moon'
 config.font_size = 12
-local harfbuzz_features = { 'calt=1', 'liga=1', 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'ss09=1' }
-config.font = wezterm.font('Monaspace Krypton', { weight = 'Medium', harfbuzz_features = harfbuzz_features })
+config.harfbuzz_features = { 'calt=1', 'liga=1', 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'ss09=1' }
+config.font = wezterm.font('Monaspace Krypton', { weight = 'Medium' })
 config.font_rules = {
   {
     intensity = 'Bold',
     font = wezterm.font {
       family = 'Monaspace Krypton',
       weight = 'ExtraBold',
-      harfbuzz_features = harfbuzz_features,
     },
   },
   {
@@ -23,10 +22,8 @@ config.font_rules = {
       family = 'Monaspace Radon',
       weight = 'ExtraBold',
       style = 'Italic',
-      harfbuzz_features = harfbuzz_features,
     },
   },
-  -- {
 }
 
 config.window_background_gradient = {
@@ -51,7 +48,11 @@ config.window_padding = {
   bottom = 0
 }
 
-config.enable_tab_bar = false
+-- Tabs live inside a session (workspace). Bar hides until a session has >1 tab.
+config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = true
+config.use_fancy_tab_bar = false
+config.show_new_tab_button_in_tab_bar = false
 config.window_decorations = "RESIZE"
 
 
@@ -123,6 +124,54 @@ config.keys = {
     mods = "LEADER",
     action = act.TogglePaneZoomState
   },
+
+  -- Sessions (workspaces)
+  {
+    key = "s",
+    mods = "LEADER",
+    action = wezterm.action_callback(function(window, pane)
+      local workspaces = {}
+      for _, name in ipairs(wezterm.mux.get_workspace_names()) do
+        table.insert(workspaces, { id = name, label = name })
+      end
+      window:perform_action(
+        act.InputSelector {
+          title = "Switch workspace",
+          choices = workspaces,
+          action = wezterm.action_callback(function(inner_window, inner_pane, id, label)
+            if id then
+              inner_window:perform_action(act.SwitchToWorkspace { name = id }, inner_pane)
+            end
+          end),
+        },
+        pane
+      )
+    end),
+  },
+  {
+    key = "c",
+    mods = "LEADER",
+    action = act.PromptInputLine {
+      description = "New session name:",
+      action = wezterm.action_callback(function(window, pane, line)
+        if line and line ~= "" then
+          window:perform_action(act.SwitchToWorkspace { name = line }, pane)
+        end
+      end),
+    }
+  },
+  {
+    key = ",",
+    mods = "LEADER",
+    action = act.PromptInputLine {
+      description = "Rename tab:",
+      action = wezterm.action_callback(function(window, _, line)
+        if line and line ~= "" then
+          window:active_tab():set_title(line)
+        end
+      end),
+    }
+  },
 }
 
 config.skip_close_confirmation_for_processes_named = {
@@ -135,6 +184,12 @@ config.skip_close_confirmation_for_processes_named = {
   'pwsh.exe',
   'powershell.exe',
 }
+
+-- Mux persistence
+-- Panes run under wezterm-mux-server (a daemon) instead of the GUI, so
+-- quitting/reopening wezterm reattaches to still-running sessions.
+config.unix_domains = { { name = 'main' } }
+config.default_gui_startup_args = { 'connect', 'main' }
 
 -- Return
 return config
